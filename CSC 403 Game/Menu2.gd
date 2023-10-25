@@ -8,10 +8,18 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if Input.is_action_just_pressed("ui_cancel"):
+		toggle()
+		
+
+func toggle():
+	visible = !visible
+	get_tree().paused = visible
+	_ready()
 
 
 func _on_start_pressed():
+	toggle()
 	get_tree().change_scene_to_file("res://map-system.tscn")
 
 
