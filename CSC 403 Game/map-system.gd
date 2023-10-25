@@ -9,7 +9,8 @@ var current_map
 var available_maps = {
 	"room1" : "res://maps/room1.tscn",
 	"room2" : "res://maps/room2.tscn",
-	"room3" : "res://maps/room3.tscn"
+	"room3" : "res://maps/room3.tscn",
+	"victory" : "res://death_screen.tscn"
 }
 
 
@@ -18,15 +19,15 @@ var num_enemies
 var enemy_array = Array()
 var enemy_spawn_location
 var starting_map = "room3"
-var current_map_gd
 var player_spawn_location
 var main
+var player_instance
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	main = get_tree().current_scene
 	transition(starting_map)
-	var player_instance = load("res://player.tscn").instantiate()
+	player_instance = load("res://player.tscn").instantiate()
 	player_spawn_location = current_map.player_position_getter()
 	player_instance.position = player_spawn_location
 	main.add_child(player_instance)
@@ -46,6 +47,10 @@ func _process(delta):
 			id.queue_free()
 			enemy_array.erase(id)
 			num_enemies -= 1
+	if player_instance.player_health == 0:
+		var death_screen = load("res://death_screen.tscn").instantiate()
+		main.add_child(death_screen)
+		current_map.queue_free()
 	# once all enemies in a room are killed, doors automatically open
 	if (num_enemies == 0):
 		current_map.clear_doors()
@@ -58,6 +63,13 @@ func transition(nextRoom):
 	if self.current_map != null:
 		self.current_map.queue_free()
 	self.current_map = load(available_maps[nextRoom]).instantiate()
+	main = get_tree().current_scene
+	main.add_child(current_map) 
+
+func transition_current():
+	if self.current_map != null:
+		self.current_map.queue_free()
+	self.current_map = load(available_maps[self.current_map]).instantiate()
 	main = get_tree().current_scene
 	main.add_child(current_map) 
 	
