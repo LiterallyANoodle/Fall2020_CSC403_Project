@@ -10,13 +10,18 @@ config_version=5
 
 [application]
 
+<<<<<<< Updated upstream
 config/name="CSC 403 Game"
 run/main_scene="res://map-system.tscn"
+=======
+config/name="Csc 403 Game"
+>>>>>>> Stashed changes
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
 [dotnet]
 
+<<<<<<< Updated upstream
 project/assembly_name="CSC 403 Game"
 
 [input]
@@ -45,3 +50,6 @@ player_move_down={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":115,"echo":false,"script":null)
 ]
 }
+=======
+project/assembly_name="Csc 403 Game"
+>>>>>>> Stashed changes

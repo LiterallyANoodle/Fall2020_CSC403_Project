@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://clebrwmh77827"]
+
+[ext_resource type="Script" path="res://Menu.gd" id="1_q7k13"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -45.0
+offset_top = -12.0
+offset_right = -45.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q7k13")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 526.0
+offset_top = 210.0
+offset_right = 670.0
+offset_bottom = 349.0
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "START
+"
+
+[node name="options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "OPTIONS
+"
+
+[node name="quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "QUIT
+"
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]
