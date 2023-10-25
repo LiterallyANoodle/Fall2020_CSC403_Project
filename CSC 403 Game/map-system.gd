@@ -13,7 +13,7 @@ var door_key
 var num_enemies
 var enemy_array
 var enemy_spawn_location
-var starting_map = "room1"
+var starting_map = "room3"
 var current_map_gd
 var player_spawn_location
 

@@ -777,8 +777,7 @@ texture = ExtResource("1_5a0dd")
 
 [sub_resource type="TileSet" id="TileSet_81dpg"]
 physics_layer_0/collision_layer = 1
-physics_layer_1/collision_layer = 2
-physics_layer_1/collision_mask = 2
+physics_layer_1/collision_layer = 1
 terrain_set_0/mode = 2
 terrain_set_0/terrain_0/name = "Walls"
 terrain_set_0/terrain_0/color = Color(0.964706, 0.345098, 0.25098, 1)
