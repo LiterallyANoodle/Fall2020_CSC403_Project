@@ -15,3 +15,17 @@ shape = SubResource("CircleShape2D_35g02")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_wb6ru")
+
+[node name="healthbar" type="ProgressBar" parent="Sprite2D"]
+modulate = Color(1, 0, 0, 1)
+offset_left = -70.0
+offset_top = 67.0
+offset_right = 73.0
+offset_bottom = 90.0
+value = 100.0
+show_percentage = false
+
+[node name="regen" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="regen" to="." method="_on_regen_timeout"]
