@@ -6,10 +6,11 @@ extends CharacterBody2D
 
 @onready var axis = Vector2.ZERO
 
-var player_health = 1
+var player_health = 100
 
 func _physics_process(delta):
 	move(delta)
+	'update_health()'
 	
 func get_input_axis():
 	axis.x = int(Input.is_action_pressed("player_move_right")) - int(Input.is_action_pressed("player_move_left"))
@@ -37,3 +38,18 @@ func apply_friction(amount):
 func apply_movement(acceleration):
 	velocity += acceleration
 	velocity = velocity.limit_length(MAX_SPEED)
+
+
+func update_health():
+	var healthbar = $healthbar
+	
+	healthbar.value = player_health
+
+
+func _on_regen_timeout():
+	if player_health < 100:
+		player_health = player_health + 10
+		if player_health > 100:
+			player_health = 100
+	if player_health <= 0:
+		player_health = 0
