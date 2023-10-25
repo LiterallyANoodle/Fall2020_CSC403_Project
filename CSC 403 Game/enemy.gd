@@ -12,7 +12,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _process(delta):
 	var velocity = Vector2.ZERO
 	self.position = position.clamp(Vector2.ZERO, screen_size)
 

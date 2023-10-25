@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpsrvbj4agfgj"]
+[gd_scene load_steps=6 format=3 uid="uid://dpsrvbj4agfgj"]
 
 [ext_resource type="Texture2D" uid="uid://gugxkntqvp48" path="res://assets/tilemap_packed.png" id="1_j6cn4"]
 [ext_resource type="Script" path="res://maps/room3.gd" id="2_p38uf"]
@@ -793,6 +793,9 @@ custom_data_layer_0/name = "spikes"
 custom_data_layer_0/type = 4
 sources/0 = SubResource("TileSetAtlasSource_lm7d1")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d22h8"]
+size = Vector2(157, 47)
+
 [node name="TileMap" type="TileMap"]
 tile_set = SubResource("TileSet_vmdaj")
 format = 2
@@ -823,3 +826,10 @@ position = Vector2(349, 107)
 
 [node name="Enemy_Spawn3" type="Marker2D" parent="."]
 position = Vector2(211, 184)
+
+[node name="Spikes Area" type="Area2D" parent="."]
+disable_mode = 1
+
+[node name="Spikes Collision" type="CollisionShape2D" parent="Spikes Area"]
+position = Vector2(214.5, 110.5)
+shape = SubResource("RectangleShape2D_d22h8")
