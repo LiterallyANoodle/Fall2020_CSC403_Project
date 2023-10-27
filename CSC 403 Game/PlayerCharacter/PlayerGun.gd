@@ -54,9 +54,9 @@ func _physics_process(delta):
 		var collision = b.move_and_collide(bullet["velocity"] * delta)
 		
 		if (collision):
-			var collider = collision.collider
-			if (collider.get_class() == "Enemy"):
-				collider.apply_damage(b.damage)
+			# var collider = collision.collider
+			# if (collider.get_class() == "Enemy"):
+			# 	collider.apply_damage(b.damage)
 			b.queue_free()
 			bullets_instances.erase(bullet)
 			

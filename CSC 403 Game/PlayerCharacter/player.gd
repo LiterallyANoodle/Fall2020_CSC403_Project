@@ -7,6 +7,8 @@ class_name Player
 
 @onready var axis = Vector2.ZERO
 
+var player_health
+
 func _process(delta):
 	shoot_gun()
 
@@ -44,3 +46,18 @@ func apply_friction(amount):
 func apply_movement(acceleration):
 	velocity += acceleration
 	velocity = velocity.limit_length(MAX_SPEED)
+	
+	
+func update_health():
+	var healthbar = $healthbar
+	
+	healthbar.value = player_health
+
+
+func _on_regen_timeout():
+	if player_health < 100:
+		player_health = player_health + 10
+		if player_health > 100:
+			player_health = 100
+	if player_health <= 0:
+		player_health = 0

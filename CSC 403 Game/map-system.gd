@@ -27,7 +27,7 @@ var player_instance
 func _ready():
 	main = get_tree().current_scene
 	transition(starting_map)
-	player_instance = load("res://player.tscn").instantiate()
+	player_instance = preload("res://PlayerCharacter/Player.tscn").instantiate()
 	player_spawn_location = current_map.player_position_getter()
 	player_instance.position = player_spawn_location
 	main.add_child(player_instance)
