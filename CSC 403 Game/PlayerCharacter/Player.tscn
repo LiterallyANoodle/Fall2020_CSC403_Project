@@ -8,7 +8,11 @@
 radius = 37.054
 
 [node name="Player" type="CharacterBody2D"]
+<<<<<<< Updated upstream
 scale = Vector2(0.3, 0.3)
+=======
+scale = Vector2(0.18, 0.18)
+>>>>>>> Stashed changes
 script = ExtResource("1_xhryt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -27,6 +31,7 @@ value = 100.0
 show_percentage = false
 
 [node name="Gun" parent="." instance=ExtResource("3_al8vl")]
+scale = Vector2(20, 20)
 
 [node name="regen" type="Timer" parent="."]
 wait_time = 5.0

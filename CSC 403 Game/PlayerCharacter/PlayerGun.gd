@@ -8,9 +8,9 @@ var bullets_scene = preload("res://PlayerCharacter/PlayerBullet.tscn")
 var bullets_instances = []
 var last_shot = 0
 
-@export var cooldown = 10
+@export var cooldown = 3
 @export var time_to_live = 5000
-@export var speed = 1000
+@export var speed = 500
 
 ## Function instantiates a single bullet in the direction of aim.
 func shoot_left(s, hardpoint = self):
@@ -35,7 +35,9 @@ func shoot_left(s, hardpoint = self):
 		"ticks": 0
 	})
 	
+	self.stop()
 	self.play("shoot")
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -62,6 +64,4 @@ func _physics_process(delta):
 			
 		bullet["ticks"] += 1
 	
-	if (self.animation_finished):
-		self.stop()
-		
+	

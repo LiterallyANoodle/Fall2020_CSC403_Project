@@ -28,7 +28,7 @@ animations = [{
 
 [node name="GunSprite" type="AnimatedSprite2D"]
 position = Vector2(2, 4)
-scale = Vector2(20, 20)
+scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_1pd7c")
 animation = &"shoot"
 offset = Vector2(2, -1)
