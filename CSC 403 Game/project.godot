@@ -16,6 +16,11 @@ config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 <<<<<<<Updatedupstreamconfig/name="CSC 403 Game"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
 [dotnet]
 
 project/assembly_name="CSC 403 Game"
