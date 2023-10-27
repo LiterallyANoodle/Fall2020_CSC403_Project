@@ -39,5 +39,8 @@ layout_mode = 2
 text = "Main Menu"
 flat = true
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(641, 369)
+
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
