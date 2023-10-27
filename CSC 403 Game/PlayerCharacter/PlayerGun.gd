@@ -35,9 +35,7 @@ func shoot_left(s, hardpoint = self):
 		"ticks": 0
 	})
 	
-	self.stop()
 	self.play("shoot")
-	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
