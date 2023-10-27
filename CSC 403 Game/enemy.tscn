@@ -7,7 +7,7 @@
 size = Vector2(114, 118)
 
 [node name="enemy" type="Sprite2D"]
-position = Vector2(2, -0.999998)
+position = Vector2(0, -1)
 scale = Vector2(0.23, 0.212)
 texture = ExtResource("1_uj1ju")
 script = ExtResource("2_jrqyh")
@@ -18,3 +18,12 @@ metadata/_edit_group_ = true
 [node name="enemy_collision" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_bsmed")
+
+[node name="enemyhealth" type="ProgressBar" parent="."]
+modulate = Color(1, 0, 0, 1)
+offset_left = -57.0
+offset_top = 61.0
+offset_right = 57.0
+offset_bottom = 88.0
+value = 100.0
+show_percentage = false

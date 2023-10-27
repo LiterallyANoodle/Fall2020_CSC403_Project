@@ -6,7 +6,7 @@ extends CharacterBody2D
 
 @onready var axis = Vector2.ZERO
 
-var player_health = 100
+var player_health
 
 func _physics_process(delta):
 	move(delta)

@@ -20,3 +20,8 @@ func _process(delta):
 func start(pos, given_id):
 	self.position = pos
 	self.enemy_id = given_id
+	
+func update_health():
+	var healthbar = $enemyhealth
+	
+	healthbar.value = health
