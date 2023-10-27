@@ -1,4 +1,5 @@
 extends Sprite2D
+class_name Enemy
 
 @export var speed = 400
 var screen_size

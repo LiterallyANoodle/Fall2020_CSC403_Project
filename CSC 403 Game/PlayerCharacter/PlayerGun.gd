@@ -5,7 +5,7 @@ var bullets_scene = preload("res://PlayerCharacter/PlayerBullet.tscn")
 @onready var aim_postition = null
 @onready var self_position = null
 
-var bullets_instances: Array
+var bullets_instances = []
 var last_shot = 0
 
 @export var cooldown = 10
@@ -18,7 +18,7 @@ func shoot_left(s, hardpoint = self):
 	else: last_shot = 0
 	
 	var velocity = Vector2()
-	var bullet = bullets_scene.instance()
+	var bullet = bullets_scene.instantiate()
 	bullet.add_collision_exception_with(s)
 	get_node("/root").add_child(bullet)
 	
@@ -34,14 +34,34 @@ func shoot_left(s, hardpoint = self):
 		"velocity": velocity,
 		"ticks": 0
 	})
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+	
+	self.play("shoot")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	
-	pass
+	last_shot += 1
+	
+	for bullet in bullets_instances:
+		
+		var b = bullet["bullet"]
+		if bullet["ticks"] == time_to_live:
+			b.queue_free()
+			bullets_instances.erase(bullet)
+			pass
+		
+		var collision = b.move_and_collide(bullet["velocity"] * delta)
+		
+		if (collision):
+			var collider = collision.collider
+			if (collider.get_class() == "Enemy"):
+				collider.apply_damage(b.damage)
+			b.queue_free()
+			bullets_instances.erase(bullet)
+			
+		bullet["ticks"] += 1
+	
+	if (self.animation_finished):
+		self.stop()
 		

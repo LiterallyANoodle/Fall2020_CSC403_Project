@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://degg3b5kgyi1h"]
+[gd_scene load_steps=4 format=3 uid="uid://uyxsq4ww340l"]
 
-[ext_resource type="Texture2D" uid="uid://dlgcugfaxfb2t" path="res://icon.svg" id="1_uj1ju"]
-[ext_resource type="Script" path="res://enemy.gd" id="2_jrqyh"]
+[ext_resource type="Texture2D" uid="uid://dlgcugfaxfb2t" path="res://icon.svg" id="1_ptfe6"]
+[ext_resource type="Script" path="res://enemy.gd" id="2_oj2ul"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bsmed"]
 size = Vector2(114, 118)
@@ -9,8 +9,8 @@ size = Vector2(114, 118)
 [node name="enemy" type="Sprite2D"]
 position = Vector2(0, -1)
 scale = Vector2(0.23, 0.212)
-texture = ExtResource("1_uj1ju")
-script = ExtResource("2_jrqyh")
+texture = ExtResource("1_ptfe6")
+script = ExtResource("2_oj2ul")
 metadata/_edit_group_ = true
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]

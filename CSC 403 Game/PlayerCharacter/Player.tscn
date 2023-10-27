@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c62uwrbgmwwf4"]
+[gd_scene load_steps=5 format=3 uid="uid://c62uwrbgmwwf4"]
 
 [ext_resource type="Script" path="res://PlayerCharacter/player.gd" id="1_xhryt"]
 [ext_resource type="Texture2D" uid="uid://dlgcugfaxfb2t" path="res://icon.svg" id="2_260fu"]
+[ext_resource type="PackedScene" uid="uid://dmimge8nwmplw" path="res://PlayerCharacter/PlayerGun.tscn" id="3_al8vl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_35g02"]
 radius = 37.054
@@ -14,3 +15,5 @@ shape = SubResource("CircleShape2D_35g02")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_260fu")
+
+[node name="Gun" parent="." instance=ExtResource("3_al8vl")]

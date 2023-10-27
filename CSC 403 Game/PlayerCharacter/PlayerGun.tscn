@@ -21,12 +21,14 @@ animations = [{
 "duration": 0.2,
 "texture": ExtResource("4_dyho6")
 }],
-"loop": true,
+"loop": false,
 "name": &"shoot",
 "speed": 5.0
 }]
 
 [node name="GunSprite" type="AnimatedSprite2D"]
+position = Vector2(2, 4)
+scale = Vector2(20, 20)
 sprite_frames = SubResource("SpriteFrames_1pd7c")
 animation = &"shoot"
 offset = Vector2(2, -1)

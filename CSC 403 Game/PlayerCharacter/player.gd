@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @export var MAX_SPEED = 300
 @export var ACCELERATION = 1500
@@ -6,8 +7,16 @@ extends CharacterBody2D
 
 @onready var axis = Vector2.ZERO
 
+func _process(delta):
+	shoot_gun()
+
 func _physics_process(delta):
 	move(delta)
+	
+func shoot_gun():
+	if Input.is_action_just_pressed("player_shoot_left"):
+		var gun = get_node_or_null("Gun")
+		if gun: gun.shoot_left(self.get_node("."))
 	
 func get_input_axis():
 	axis.x = int(Input.is_action_pressed("player_move_right")) - int(Input.is_action_pressed("player_move_left"))
