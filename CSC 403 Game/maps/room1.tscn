@@ -803,7 +803,7 @@ layer_1/tile_data = PackedInt32Array(7, 655360, 3, 8, 720896, 3)
 script = ExtResource("2_o1y1d")
 
 [node name="Player_Spawn" type="Marker2D" parent="."]
-position = Vector2(128, 200)
+position = Vector2(50, 100)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(128, 128)

@@ -11,7 +11,7 @@ var last_shot = 0
 
 @export var cooldown = 3
 @export var time_to_live = 5000
-@export var speed = 500
+@export var speed = 1000
 
 ## Function instantiates a single bullet in the direction of aim. s is the parent KinematicBody2D and hardpoint is the Vector2 of aim.
 func shoot_left(s, hardpoint = self):
@@ -73,7 +73,7 @@ func _physics_process(delta):
 		
 	# change direction of aim.
 	self.look_at(get_viewport().get_mouse_position())
-	print(get_parent().position)
+	print(get_viewport().get_mouse_position())
 	self.rotation_degrees = fmod(self.rotation_degrees + 360.0, 360.0)
 	# print(fmod(self.rotation_degrees + 90, 360.0))
 	if (fmod(self.rotation_degrees + 90, 360.0) > 180):
