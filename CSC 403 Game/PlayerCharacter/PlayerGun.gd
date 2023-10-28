@@ -37,7 +37,9 @@ func shoot_left(s, hardpoint = self):
 	})
 	
 	if anim.is_playing():
-		pass
+		anim.stop()
+		anim.play("Shoot")
+		anim.queue("Idle")
 	else:
 		anim.play("Shoot")
 		anim.queue("Idle")
