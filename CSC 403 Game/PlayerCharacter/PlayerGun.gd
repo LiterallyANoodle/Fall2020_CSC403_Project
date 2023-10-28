@@ -4,6 +4,7 @@ class_name PlayerGun
 var bullets_scene = preload("res://PlayerCharacter/PlayerBullet.tscn")
 @onready var aim_postition = null
 @onready var self_position = null
+@onready var anim = $AnimationPlayer
 
 var bullets_instances = []
 var last_shot = 0
@@ -35,7 +36,11 @@ func shoot_left(s, hardpoint = self):
 		"ticks": 0
 	})
 	
-	self.play("shoot")
+	if anim.is_playing():
+		pass
+	else:
+		anim.play("Shoot")
+		anim.queue("Idle")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
