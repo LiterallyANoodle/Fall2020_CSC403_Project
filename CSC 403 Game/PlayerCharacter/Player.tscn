@@ -10,6 +10,9 @@ radius = 37.054
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.18, 0.18)
 script = ExtResource("1_xhryt")
+MAX_SPEED = 250
+ACCELERATION = 6000
+FRICTION = 3000
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_35g02")
