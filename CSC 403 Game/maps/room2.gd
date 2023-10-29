@@ -9,10 +9,12 @@ var enemy_positions = {
 	3 : "Enemy_Spawn3"
 }
 
+var parent
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	parent = get_parent()
 	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -26,3 +28,8 @@ func enemy_position_getter(id):
 	
 func player_position_getter():
 	return $Player_Spawn.position
+
+
+func _on_area_2d_area_entered(area):
+	parent.transition(nextRoom)
+	pass # Replace with function body.

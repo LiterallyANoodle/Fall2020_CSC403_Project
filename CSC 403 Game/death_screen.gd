@@ -1,9 +1,13 @@
 extends MarginContainer
 
+var enemy_amount = 0
+var parent
+
 #var main = get_tree()
 #var parent = main.get_parent()
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	parent = get_parent()
 	pass # Replace with function body.
 
 
@@ -13,16 +17,15 @@ func _process(delta):
 
 
 func _on_restart_pressed():
-	#parent.transition_current()
-	get_tree().change_scene("res://map-system.tscn")
+	parent.transition("room1")
 	self.queue_free()
 	pass # Replace with function body.
 
 
 func _on_main_menu_pressed():
-	# go to main menu
+	get_tree().change_scene_to_file("res://menu_2.tscn")
 	self.queue_free()
 	pass # Replace with function body.
 	
 func player_position_getter():
-	return 
+	return $Player_Spawn.position
