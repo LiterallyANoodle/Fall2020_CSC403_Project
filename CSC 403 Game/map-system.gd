@@ -5,7 +5,7 @@ extends Node2D
 
 
 var current_map
-# available maps is scalable for however many maps we want
+## available maps is scalable for however many maps we want simply by adding to the dictionary
 var available_maps = {
 	"room1" : "res://maps/room1.tscn",
 	"room2" : "res://maps/room2.tscn",
@@ -16,10 +16,12 @@ var available_maps = {
 
 var door_key
 var num_enemies
+## enemy_array is used to keep track of enemy instances
 var enemy_array = Array()
 var enemy_spawn_location
 var starting_map = "room1"
 var player_spawn_location
+## scene tree
 var main
 var player_instance
 
@@ -28,9 +30,9 @@ func _ready():
 	main = get_tree().current_scene
 	transition(starting_map)
 	door_key = false
-#	print(get_node(^"./Player/CollisionShape2D"))
-	#print(get_node(^"/root/map-system/Player/CollisionShape2D"))
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+## despawns enemies when health is 0, kills player if health is 0
 func _process(delta):
 	for id in enemy_array:
 		if id.health == 0:
@@ -53,7 +55,7 @@ func _process(delta):
 #	each room has a string nextRoom
 #	transition(available_maps[current_room.nextRoom])
 
-
+## Transition is a function to despawn the current room and all enemy and player instances and spawn in the next room
 func transition(nextRoom):
 	if current_map != null:
 		current_map.queue_free()
@@ -67,6 +69,7 @@ func transition(nextRoom):
 	main.add_child(player_instance)
 	spawn_enemies()
 
+## Transition_current is the same as transition, except it re-initiates the current room
 func transition_current():
 	if self.current_map != null:
 		self.current_map.queue_free()
@@ -74,6 +77,7 @@ func transition_current():
 	main = get_tree().current_scene
 	main.add_child(current_map) 
 	
+## Spawn_enemies spawns in enemies based on the current room configuration and places them in the enemy array
 func spawn_enemies():
 	for id in current_map.enemy_amount:
 		var enemy_instance = load("res://enemy.tscn").instantiate()
