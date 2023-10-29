@@ -21,7 +21,7 @@ func toggle():
 
 func _on_start_pressed():
 	toggle()
-	get_tree().change_scene_to_file("res://map-system.tscn")
+	get_tree().change_scene_to_file("res://game.tscn")
 
 
 func _on_options_pressed():

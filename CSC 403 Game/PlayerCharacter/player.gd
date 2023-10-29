@@ -11,13 +11,14 @@ class_name Player
 
 @onready var axis = Vector2.ZERO
 
-var player_health
+var player_health = 10
 
 func _process(delta):
 	shoot_gun()
 
 func _physics_process(delta):
 	move(delta)
+#	update_health()
 	
 ## Detects a left click and fires the gun.
 func shoot_gun():
@@ -55,10 +56,9 @@ func apply_movement(acceleration):
 	velocity = velocity.limit_length(MAX_SPEED)
 	
 	
-func update_health():
-	var healthbar = $healthbar
-	
-	healthbar.value = player_health
+#func update_health():
+#	var healthbar = $healthbar
+#	healthbar.value = player_health
 
 
 func _on_regen_timeout():
