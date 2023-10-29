@@ -4,15 +4,16 @@ class_name PlayerGun
 var bullets_scene = preload("res://PlayerCharacter/PlayerBullet.tscn")
 @onready var aim_postition = null
 @onready var self_position = null
+@onready var anim = $AnimationPlayer
 
 var bullets_instances = []
 var last_shot = 0
 
 @export var cooldown = 3
 @export var time_to_live = 5000
-@export var speed = 500
+@export var speed = 1000
 
-## Function instantiates a single bullet in the direction of aim.
+## Function instantiates a single bullet in the direction of aim. s is the parent KinematicBody2D and hardpoint is the Vector2 of aim.
 func shoot_left(s, hardpoint = self):
 	if last_shot < cooldown: return
 	else: last_shot = 0
@@ -23,8 +24,8 @@ func shoot_left(s, hardpoint = self):
 	get_node("/root").add_child(bullet)
 	
 	var self_position = self.position
-	var aim_position = get_parent().position 
-	bullet.rotation = s.rotation
+	var aim_position = hardpoint.rotation
+	bullet.rotation = hardpoint.rotation
 	bullet.position = hardpoint.global_position
 	
 	velocity = Vector2(speed, 0).rotated(bullet.rotation)
@@ -35,11 +36,19 @@ func shoot_left(s, hardpoint = self):
 		"ticks": 0
 	})
 	
-	self.play("shoot")
+	if anim.is_playing():
+		anim.stop()
+		anim.play("Shoot")
+		anim.queue("Idle")
+	else:
+		anim.play("Shoot")
+		anim.queue("Idle")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	
+	# handle active bullet instances
 	
 	last_shot += 1
 	
@@ -61,5 +70,14 @@ func _physics_process(delta):
 			bullets_instances.erase(bullet)
 			
 		bullet["ticks"] += 1
-	
+		
+	# change direction of aim.
+	self.look_at(get_viewport().get_mouse_position())
+	print(get_viewport().get_mouse_position())
+	self.rotation_degrees = fmod(self.rotation_degrees + 360.0, 360.0)
+	# print(fmod(self.rotation_degrees + 90, 360.0))
+	if (fmod(self.rotation_degrees + 90, 360.0) > 180):
+		self.flip_v = true
+	else:
+		self.flip_v = false
 	

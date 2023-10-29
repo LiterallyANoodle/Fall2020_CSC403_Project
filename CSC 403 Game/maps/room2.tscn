@@ -802,7 +802,7 @@ script = ExtResource("2_52m2a")
 metadata/_edit_group_ = true
 
 [node name="Player_Spawn" type="Marker2D" parent="."]
-position = Vector2(160, 150)
+position = Vector2(50, 100)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(128, 96)

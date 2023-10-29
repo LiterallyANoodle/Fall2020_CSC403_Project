@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://PlayerCharacter/PlayerBullet.gd" id="1_l2lev"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jb3w"]
-size = Vector2(6, 4)
+size = Vector2(0.75, 0.5)
 
 [node name="PlayerBullet" type="RigidBody2D"]
 gravity_scale = 0.0

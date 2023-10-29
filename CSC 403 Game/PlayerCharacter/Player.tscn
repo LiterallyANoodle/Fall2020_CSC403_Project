@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c62uwrbgmwwf4"]
+[gd_scene load_steps=6 format=3 uid="uid://c62uwrbgmwwf4"]
 
 [ext_resource type="Script" path="res://PlayerCharacter/player.gd" id="1_xhryt"]
 [ext_resource type="Texture2D" uid="uid://dlgcugfaxfb2t" path="res://icon.svg" id="2_260fu"]
 [ext_resource type="PackedScene" uid="uid://dmimge8nwmplw" path="res://PlayerCharacter/PlayerGun.tscn" id="3_al8vl"]
+[ext_resource type="PackedScene" uid="uid://hrakx5ph76jp" path="res://PlayerCharacter/Cursor.tscn" id="4_55jtr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_35g02"]
 radius = 37.054
@@ -10,6 +11,9 @@ radius = 37.054
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.18, 0.18)
 script = ExtResource("1_xhryt")
+MAX_SPEED = 250
+ACCELERATION = 6000
+FRICTION = 3000
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_35g02")
@@ -31,3 +35,5 @@ scale = Vector2(20, 20)
 
 [node name="regen" type="Timer" parent="."]
 wait_time = 5.0
+
+[node name="Cursor" parent="." instance=ExtResource("4_55jtr")]
