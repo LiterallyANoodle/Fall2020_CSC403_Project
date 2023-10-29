@@ -40,6 +40,6 @@ func _on_area_2d_body_exited(body):
 	entered = false
 
 func _on_area_2d_area_entered(area):
-	parent.transition(nextRoom)
+	#parent.transition(nextRoom)
 
 

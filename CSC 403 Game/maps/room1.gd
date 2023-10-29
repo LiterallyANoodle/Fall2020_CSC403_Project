@@ -43,6 +43,6 @@ func door_collision(player_position):
 
 
 func _on_area_2d_area_entered(area):
-	parent.transition(self.nextRoom)
-	get_node(^".").queue_free()
+	#parent.transition(self.nextRoom)
+	#get_node(^".").queue_free()
 	pass # Replace with function body.
