@@ -3,6 +3,7 @@ extends Node
 class_name GameManager
 signal toggle_game_paused(is_paused : bool)
 
+var map = load("res://map-system.tscn")
 var game_paused : bool = false:
 	get:
 		return game_paused
@@ -18,8 +19,9 @@ func _input(event: InputEvent):
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
-	pass # Replace with function body.
-
+	var spawn = map.instantiate()
+	add_child(spawn)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
