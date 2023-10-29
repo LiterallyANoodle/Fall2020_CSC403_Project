@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnij72hake15u"]
+
+[ext_resource type="Script" path="res://game2.gd" id="1_f1vn0"]
+[ext_resource type="PackedScene" uid="uid://bvj4bkjfhso48" path="res://map-system.tscn" id="2_2ulk2"]
+[ext_resource type="PackedScene" uid="uid://bale1cw3my7bv" path="res://pause_2.tscn" id="3_k5tw4"]
+
+[node name="game2" type="Node"]
+process_mode = 3
+script = ExtResource("1_f1vn0")
+
+[node name="map-system" parent="." instance=ExtResource("2_2ulk2")]
+process_mode = 1
+
+[node name="pause2" parent="." instance=ExtResource("3_k5tw4")]

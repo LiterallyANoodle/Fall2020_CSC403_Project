@@ -1,5 +1,6 @@
 extends Control
 
+@export var game_manager : GameManager
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,5 +28,6 @@ func _on_options_pressed():
 	pass # Replace with function body.
 
 
-func _on_quit_pressed():
-	get_tree().quit()
+
+func _on_back_pressed():
+	pass # Replace with function body.

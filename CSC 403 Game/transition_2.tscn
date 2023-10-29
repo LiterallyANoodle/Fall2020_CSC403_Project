@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cm4t67qcudarx"]
+
+[ext_resource type="PackedScene" uid="uid://dyjb6mneqvd88" path="res://maps/room2.tscn" id="1_vvg4s"]
+[ext_resource type="Script" path="res://transition_2.gd" id="1_ypng6"]
+[ext_resource type="PackedScene" uid="uid://c62uwrbgmwwf4" path="res://PlayerCharacter/Player.tscn" id="2_iwvsy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lu4fk"]
+radius = 25.2982
+
+[node name="transition2" type="Node2D"]
+script = ExtResource("1_ypng6")
+
+[node name="TileMap" parent="." instance=ExtResource("1_vvg4s")]
+
+[node name="Player" parent="." instance=ExtResource("2_iwvsy")]
+position = Vector2(144, 32)
+
+[node name="Area2D22" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D22"]
+position = Vector2(144, 16)
+shape = SubResource("CircleShape2D_lu4fk")
+
+[connection signal="body_entered" from="Area2D22" to="." method="_on_area_2d_22_body_entered"]
+[connection signal="body_exited" from="Area2D22" to="." method="_on_area_2d_22_body_exited"]
