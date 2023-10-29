@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://3vuvess6byjd"]
+
+[ext_resource type="PackedScene" uid="uid://dyjb6mneqvd88" path="res://maps/room2.tscn" id="1_2tit1"]
+[ext_resource type="PackedScene" uid="uid://c62uwrbgmwwf4" path="res://PlayerCharacter/Player.tscn" id="2_jd4e2"]
+[ext_resource type="Script" path="res://Area2D2.gd" id="3_kl3kw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tmdm0"]
+radius = 25.2982
+
+[node name="testWorld2" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource("1_2tit1")]
+
+[node name="Player" parent="." instance=ExtResource("2_jd4e2")]
+position = Vector2(144, 32)
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_kl3kw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(144, 24)
+shape = SubResource("CircleShape2D_tmdm0")
+
+[connection signal="body_entered" from="Area2D" to="TileMap" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="TileMap" method="_on_area_2d_body_exited"]
