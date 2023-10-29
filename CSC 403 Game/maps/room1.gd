@@ -9,14 +9,11 @@ var enemy_positions = {
 }
 var parent
 
-<<<<<<< HEAD
-=======
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	parent = get_parent()
 	pass # Replace with function body.
 
->>>>>>> e40ccd2c94b543019e992aad8b074e71d2c95146
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -32,7 +29,6 @@ func enemy_position_getter(id):
 	
 func player_position_getter():
 	return $Player_Spawn.position
-<<<<<<< HEAD
 
 
 func _on_area_2d_body_entered(body: PhysicsBody2D):
@@ -41,8 +37,7 @@ func _on_area_2d_body_entered(body: PhysicsBody2D):
 
 func _on_area_2d_body_exited(body):
 	entered = false
-=======
-	
+
 func door_collision(player_position):
 	var collision = self.get_cell_tile_data(0, player_position)
 
@@ -51,4 +46,3 @@ func _on_area_2d_area_entered(area):
 	parent.transition(self.nextRoom)
 	get_node(^".").queue_free()
 	pass # Replace with function body.
->>>>>>> e40ccd2c94b543019e992aad8b074e71d2c95146

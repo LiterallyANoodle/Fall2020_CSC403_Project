@@ -32,18 +32,14 @@ func enemy_position_getter(id):
 func player_position_getter():
 	return $Player_Spawn.position
 
-
-<<<<<<< HEAD
-
-
 func _on_area_2d_body_entered(body):
 	entered = true
 
 
 func _on_area_2d_body_exited(body):
 	entered = false
-=======
+
 func _on_area_2d_area_entered(area):
 	parent.transition(nextRoom)
-	pass # Replace with function body.
->>>>>>> e40ccd2c94b543019e992aad8b074e71d2c95146
+
+
