@@ -20,7 +20,7 @@ var last_shot = 0
 @export var time_to_live = 5000
 @export var speed = 1000
 
-## Function instantiates a single bullet in the direction of aim. s is the parent KinematicBody2D and hardpoint is the Vector2 of aim.
+## Function instantiates a single bullet in the direction of aim. s is the parent KinematicBody2D and hardpoint is the instance of PlayerGun.
 func shoot_left(s, hardpoint = self):
 	if last_shot < cooldown: return
 	else: last_shot = 0
