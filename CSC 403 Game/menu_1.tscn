@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck0cpbdcyw6qw"]
+
+[ext_resource type="Script" path="res://Menu1.gd" id="1_0ltyf"]
+
+[sub_resource type="Theme" id="Theme_fi2kj"]
+
+[node name="Menu1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -151.0
+offset_right = -24.0
+offset_bottom = -151.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0ltyf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 155.0
+offset_right = 1186.0
+offset_bottom = 818.0
+color = Color(0.133333, 0.117647, 0.321569, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.035
+anchor_top = -0.086
+anchor_right = 0.035
+anchor_bottom = -0.086
+offset_left = 485.68
+offset_top = 447.728
+offset_right = 797.68
+offset_bottom = 618.728
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Start" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme = SubResource("Theme_fi2kj")
+text = "START"
+
+[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../Quit")
+text = "OPTIONS"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../Start")
+text = "QUIT
+"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

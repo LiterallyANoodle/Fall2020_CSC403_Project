@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvj4bkjfhso48"]
+
+[ext_resource type="Script" path="res://map-system.gd" id="1_xftvh"]
+
+[node name="map-system" type="Node2D"]
+script = ExtResource("1_xftvh")
+metadata/_edit_group_ = true

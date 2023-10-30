@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwegqcluxdwn2"]
+
+[ext_resource type="Script" path="res://death_screen.gd" id="1_fihjx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6l3u3"]
+font_size = 32
+
+[node name="MarginContainer" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fihjx")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="GameOver" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Game Over!"
+label_settings = SubResource("LabelSettings_6l3u3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Restart"
+flat = true
+
+[node name="Main Menu" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
+flat = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(641, 369)
+
+[node name="Player_Spawn" type="Marker2D" parent="."]
+position = Vector2(208, 273)
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]

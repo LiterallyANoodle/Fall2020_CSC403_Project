@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://byuthg4b3504y"]
+
+[ext_resource type="PackedScene" uid="uid://bvj4bkjfhso48" path="res://map-system.tscn" id="1_xsbwv"]
+
+[node name="testing" type="Node"]
+
+[node name="map-system" parent="." instance=ExtResource("1_xsbwv")]
