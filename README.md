@@ -8,3 +8,10 @@ To play:
   e to kill enemies
   enter doorways to move rooms
   mouse for game over screen, click to choose
+
+To view class documentation:
+  Open the relevant scene in the editor from the resource tree.
+  Open the associated script.
+  Select the "Search Help" button in the top right of the script viewer.
+  Search for the class name and select it in the tree.
+  Press open.
