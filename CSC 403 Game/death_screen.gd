@@ -18,6 +18,11 @@ func _process(delta):
 
 func _on_restart_pressed():
 	parent.transition("room1")
+<<<<<<< Updated upstream
+=======
+	#parent.transition_current()
+	
+>>>>>>> Stashed changes
 	self.queue_free()
 	pass # Replace with function body.
 
