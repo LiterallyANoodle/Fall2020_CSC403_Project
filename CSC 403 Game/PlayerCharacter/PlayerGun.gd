@@ -1,6 +1,13 @@
 extends AnimatedSprite2D
 class_name PlayerGun
 
+## Controls the gun sprite connected to the player and instances bullets.
+##
+## Keeps track of bullets, shot cooldowns, and self animation. Bullets are stored in an array. 
+## Each bullet is a dictionary with the bullet instance, velocity, and ticks since creation.
+## PlayerGun animates itself using an AnimationPlayer which changes the selected frames in the sprite.
+## PlayerGun also will flip itself vertically when facing the opposite side so that it is always visually upright.
+
 var bullets_scene = preload("res://PlayerCharacter/PlayerBullet.tscn")
 @onready var aim_postition = null
 @onready var self_position = null
