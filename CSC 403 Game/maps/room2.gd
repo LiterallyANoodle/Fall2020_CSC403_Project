@@ -32,7 +32,6 @@ func enemy_position_getter(id):
 func player_position_getter():
 	return $Player_Spawn.position
 
-<<<<<<< Updated upstream
 func _on_area_2d_body_entered(body):
 	entered = true
 
@@ -40,13 +39,7 @@ func _on_area_2d_body_entered(body):
 func _on_area_2d_body_exited(body):
 	entered = false
 
-func _on_area_2d_area_entered(area):
-	#parent.transition(nextRoom)
-
-
-=======
 
 func _on_area_2d_area_entered(area):
 	parent.transition(nextRoom)
 	pass # Replace with function body.
->>>>>>> Stashed changes
