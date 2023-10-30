@@ -29,6 +29,7 @@ func enemy_position_getter(id):
 	
 func player_position_getter():
 	return $Player_Spawn.position
+<<<<<<< Updated upstream
 
 
 func _on_area_2d_body_entered(body: PhysicsBody2D):
@@ -38,11 +39,19 @@ func _on_area_2d_body_entered(body: PhysicsBody2D):
 func _on_area_2d_body_exited(body):
 	entered = false
 
+=======
+	
+>>>>>>> Stashed changes
 func door_collision(player_position):
 	var collision = self.get_cell_tile_data(0, player_position)
 
 
 func _on_area_2d_area_entered(area):
+<<<<<<< Updated upstream
 	#parent.transition(self.nextRoom)
 	#get_node(^".").queue_free()
+=======
+	parent.transition(self.nextRoom)
+	get_node(^".").queue_free()
+>>>>>>> Stashed changes
 	pass # Replace with function body.

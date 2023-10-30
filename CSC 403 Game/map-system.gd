@@ -30,7 +30,12 @@ func _ready():
 	main = get_tree().current_scene
 	transition(starting_map)
 	door_key = false
+<<<<<<< Updated upstream
 
+=======
+#	print(get_node(^"./Player/CollisionShape2D"))
+	#print(get_node(^"/root/map-system/Player/CollisionShape2D"))
+>>>>>>> Stashed changes
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 ## despawns enemies when health is 0, kills player if health is 0
 func _process(delta):
@@ -77,7 +82,10 @@ func transition_current():
 	main = get_tree().current_scene
 	main.add_child(current_map) 
 	
+<<<<<<< Updated upstream
 ## Spawn_enemies spawns in enemies based on the current room configuration and places them in the enemy array
+=======
+>>>>>>> Stashed changes
 func spawn_enemies():
 	for id in current_map.enemy_amount:
 		var enemy_instance = load("res://enemy.tscn").instantiate()
