@@ -8,6 +8,7 @@ To play:
   e to kill enemies
   enter doorways to move rooms
   mouse for game over screen, click to choose
+  esc button to access pause menu
 
 To view class documentation:
   Open the relevant scene in the editor from the resource tree.
