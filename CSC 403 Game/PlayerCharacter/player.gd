@@ -11,7 +11,9 @@ class_name Player
 
 @onready var axis = Vector2.ZERO
 
-var player_health = 10
+var player_health = 100
+var enemy_attack_cooldown = true
+var player_alive = true
 
 func _process(delta):
 	shoot_gun()
@@ -60,7 +62,7 @@ func apply_movement(acceleration):
 #	var healthbar = $healthbar
 #	healthbar.value = player_health
 
-
+'''
 func _on_regen_timeout():
 	if player_health < 100:
 		player_health = player_health + 10
@@ -68,3 +70,11 @@ func _on_regen_timeout():
 			player_health = 100
 	if player_health <= 0:
 		player_health = 0
+'''
+
+func player():
+	pass
+
+
+func _on_player_hitbox_body_entered(body):
+	pass

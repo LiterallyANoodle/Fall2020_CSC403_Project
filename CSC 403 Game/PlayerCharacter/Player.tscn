@@ -8,7 +8,7 @@
 radius = 37.054
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3hp3"]
-size = Vector2(122.222, 122.222)
+size = Vector2(172.222, 166.667)
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.18, 0.18)
@@ -27,10 +27,11 @@ scale = Vector2(20, 20)
 wait_time = 2.0
 autostart = true
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="player_hitbox" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(5.29819e-06, -2.6491e-06)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox"]
+position = Vector2(2.77778, 5.55555)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_c3hp3")
 
 [node name="healthbar" type="ProgressBar" parent="."]
@@ -43,3 +44,4 @@ value = 100.0
 show_percentage = false
 
 [connection signal="timeout" from="regen" to="." method="_on_regen_timeout"]
+[connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
