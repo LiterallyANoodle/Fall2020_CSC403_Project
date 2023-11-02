@@ -31,7 +31,6 @@ autostart = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox"]
 position = Vector2(2.77778, 5.55555)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_c3hp3")
 
 [node name="healthbar" type="ProgressBar" parent="."]

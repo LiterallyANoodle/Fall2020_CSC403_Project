@@ -31,6 +31,6 @@ func update_health():
 
 func _on_enemy_hitbox_body_entered(body):
 	if body.has_method("PlayerBullet"):
-		health -= 5
+		health -= 2
 		print("player attacked")
 
