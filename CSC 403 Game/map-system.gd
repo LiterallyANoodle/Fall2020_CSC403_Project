@@ -38,7 +38,7 @@ func _process(delta):
 		if id.health == 0:
 			id.queue_free()
 			enemy_array.erase(id)
-			num_enemies -= 1
+			#num_enemies -= 1
 			if (num_enemies == 0):
 				current_map.clear_doors()
 			
