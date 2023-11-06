@@ -4,7 +4,15 @@
 [ext_resource type="PackedScene" uid="uid://umjdaxasw73k" path="res://pause_menu.tscn" id="3_7lohh"]
 
 [node name="FinalGame" type="Node"]
+process_mode = 3
 script = ExtResource("1_lit7k")
+
+<<<<<<< HEAD
+[node name="map-system" parent="." instance=ExtResource("2_ii11g")]
+process_mode = 1
+=======
+[node name="map-system" parent="." instance=ExtResource("2_jd6mi")]
+>>>>>>> 98369753f2124ce154e60f70ca9388e68c2e2b3c
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -234,6 +234,10 @@ text = "Back"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Label/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Label/VBoxContainer/Options" to="." method="_on_options_pressed"]
+<<<<<<< HEAD
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Label/VBoxContainer/Back" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Label/VBoxContainer/Back" to="." method="_on_back_pressed"]
+=======
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Label/VBoxContainer/Quit" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Label/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="options/VBoxContainer/Video" to="." method="_on_video_pressed"]
@@ -247,3 +251,4 @@ text = "Back"
 [connection signal="value_changed" from="Audio/HBoxContainer/Slider/Music" to="." method="_on_music_value_changed"]
 [connection signal="value_changed" from="Audio/HBoxContainer/Slider/Sound FX" to="." method="_on_sound_fx_value_changed"]
 [connection signal="pressed" from="Audio/backFromAudio" to="." method="_on_back_from_audio_pressed"]
+>>>>>>> 98369753f2124ce154e60f70ca9388e68c2e2b3c
