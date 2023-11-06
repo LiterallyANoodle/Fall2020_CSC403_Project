@@ -6,9 +6,6 @@
 
 [node name="map-system" type="Node2D"]
 script = ExtResource("1_xftvh")
-<<<<<<< HEAD
-metadata/_edit_group_ = true
-=======
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_ggt7e")
@@ -16,4 +13,3 @@ autoplay = true
 script = ExtResource("3_uycev")
 
 [connection signal="finished" from="Music" to="Music" method="_on_finished"]
->>>>>>> 1f6c147501348e4804191e91aa85d61cc3fd260b

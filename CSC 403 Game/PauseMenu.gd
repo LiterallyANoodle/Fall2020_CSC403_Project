@@ -6,7 +6,6 @@ extends Control
 
 func _ready():
 	hide()
-	game_manager.connect("toggle_game_paused", _on_game_manager_toggle_game_paused)
 	$CenterContainer/VBoxContainer/Resume.grab_focus()
 	
 
@@ -14,7 +13,7 @@ func _ready():
 func _process(delta):
 	pass
 
-func _on_game_manager_toggle_game_paused(is_paused : bool):
+func _on_final_game_toggle_game_paused(is_paused : bool):
 	if(is_paused):
 		show()
 	else:
@@ -31,3 +30,4 @@ func _on_main_menu_pressed():
 	get_tree().change_scene_to_file("res://menu_2.tscn")
 	self.queue_free()
 	pass # Replace with function body.
+

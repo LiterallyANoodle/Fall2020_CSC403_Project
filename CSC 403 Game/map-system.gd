@@ -66,7 +66,7 @@ func transition(nextRoom):
 		player_instance.queue_free()
 	self.current_map = load(available_maps[nextRoom]).instantiate()
 	main = get_tree().current_scene
-	main.add_child(current_map) 
+	self.add_child(current_map) 
 	player_instance = preload("res://PlayerCharacter/Player.tscn").instantiate()
 	player_spawn_location = current_map.player_position_getter()
 	player_instance.position = player_spawn_location
