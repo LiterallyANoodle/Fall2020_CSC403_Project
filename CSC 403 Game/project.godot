@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Csc 403 Game"
-run/main_scene="res://menu_2.tscn"
+run/main_scene="res://final_game.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 <<<<<<<Updatedupstreamconfig/name="CSC 403 Game"
