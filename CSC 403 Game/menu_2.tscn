@@ -234,6 +234,7 @@ text = "Back"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Label/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Label/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Label/VBoxContainer/Quit" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Label/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Label/VBoxContainer/Quit" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="options/VBoxContainer/Video" to="." method="_on_video_pressed"]
