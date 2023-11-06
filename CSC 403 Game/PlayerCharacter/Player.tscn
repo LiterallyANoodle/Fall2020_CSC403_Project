@@ -42,4 +42,7 @@ offset_bottom = 90.0
 value = 100.0
 show_percentage = false
 
+[node name="Cursor" parent="." instance=ExtResource("4_0431f")]
+z_index = 10
+
 [connection signal="timeout" from="regen" to="." method="_on_regen_timeout"]

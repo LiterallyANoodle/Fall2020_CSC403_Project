@@ -3,7 +3,7 @@ extends Node
 class_name FinalGame
 signal toggle_game_paused(is_paused : bool)
 
-var map = load("res://map-system.tscn")
+var map = preload("res://map-system.tscn")
 var spawn
 
 var game_paused : bool = false:
