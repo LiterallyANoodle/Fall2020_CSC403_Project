@@ -1,15 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://c62uwrbgmwwf4"]
+[gd_scene load_steps=6 format=3 uid="uid://c62uwrbgmwwf4"]
 
 [ext_resource type="Script" path="res://PlayerCharacter/player.gd" id="1_xhryt"]
 [ext_resource type="Texture2D" uid="uid://dlgcugfaxfb2t" path="res://icon.svg" id="2_260fu"]
 [ext_resource type="PackedScene" uid="uid://dmimge8nwmplw" path="res://PlayerCharacter/PlayerGun.tscn" id="3_al8vl"]
-[ext_resource type="PackedScene" uid="uid://hrakx5ph76jp" path="res://PlayerCharacter/Cursor.tscn" id="4_0431f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_35g02"]
 radius = 37.054
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3hp3"]
-size = Vector2(172.222, 166.667)
+size = Vector2(122.222, 122.222)
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.18, 0.18)
@@ -28,10 +27,10 @@ scale = Vector2(20, 20)
 wait_time = 2.0
 autostart = true
 
-[node name="player_hitbox" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox"]
-position = Vector2(2.77778, 5.55555)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(5.29819e-06, -2.6491e-06)
 shape = SubResource("RectangleShape2D_c3hp3")
 
 [node name="healthbar" type="ProgressBar" parent="."]
@@ -43,7 +42,4 @@ offset_bottom = 90.0
 value = 100.0
 show_percentage = false
 
-[node name="Cursor" parent="." instance=ExtResource("4_0431f")]
-
 [connection signal="timeout" from="regen" to="." method="_on_regen_timeout"]
-[connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]

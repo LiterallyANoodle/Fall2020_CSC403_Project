@@ -14,17 +14,20 @@ script = ExtResource("1_or1le")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_bottom = 0.031
-offset_top = -8.0
-offset_right = 1144.0
-offset_bottom = 627.912
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.0901961, 0.105882, 0.301961, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_right = 955.0
-offset_bottom = 542.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -32,7 +35,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 75
-text = "         Main Menu"
+text = "Main Menu"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -43,8 +46,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 416.0
 offset_top = 296.0
-offset_right = -283.0
-offset_bottom = 510.0
+offset_right = -448.0
+offset_bottom = 534.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -56,11 +59,12 @@ text = "START"
 layout_mode = 2
 text = "OPTIONS"
 
-[node name="Back" type="Button" parent="MarginContainer/VBoxContainer/Label/VBoxContainer"]
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/Label/VBoxContainer"]
 layout_mode = 2
-text = "BACK"
+text = "QUIT"
 
 [node name="options" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -69,17 +73,16 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="options"]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -69.5
+offset_top = -68.5
+offset_right = 69.5
+offset_bottom = 68.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -93,20 +96,22 @@ text = "Audio"
 
 [node name="back" type="Button" parent="options"]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.967
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -22.5
-offset_top = -31.0
-offset_right = 22.5
+offset_left = -24.0
+offset_top = -192.24
+offset_right = 21.0
+offset_bottom = -185.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Back
 "
 
 [node name="videoControl" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -115,17 +120,16 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="videoControl"]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -55.5
+offset_left = -55.0
 offset_top = -43.0
-offset_right = 55.5
-offset_bottom = 43.0
+offset_right = 89.0
+offset_bottom = 56.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -155,6 +159,17 @@ layout_mode = 2
 
 [node name="VSync" type="CheckBox" parent="videoControl/HBoxContainer/Checks"]
 layout_mode = 2
+
+[node name="backfromvideo" type="Button" parent="videoControl"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.025
+anchor_bottom = 0.033
+offset_left = 600.0
+offset_top = 536.0
+offset_right = 613.0
+offset_bottom = 543.24
+text = "Back"
 
 [node name="Audio" type="Control" parent="."]
 visible = false
@@ -208,20 +223,27 @@ layout_mode = 2
 
 [node name="backFromAudio" type="Button" parent="Audio"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -22.5
-offset_top = -31.0
-offset_right = 22.5
-grow_horizontal = 2
-grow_vertical = 0
-text = "Back
-"
+anchors_preset = -1
+anchor_right = 0.025
+anchor_bottom = 0.033
+offset_left = 560.0
+offset_top = 512.0
+offset_right = 573.0
+offset_bottom = 519.24
+text = "Back"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Label/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Label/VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Label/VBoxContainer/Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Label/VBoxContainer/Back" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Label/VBoxContainer/Quit" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Label/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="options/VBoxContainer/Video" to="." method="_on_video_pressed"]
+[connection signal="pressed" from="options/VBoxContainer/Audio" to="." method="_on_audio_pressed"]
+[connection signal="pressed" from="options/back" to="." method="_on_back_pressed"]
+[connection signal="toggled" from="videoControl/HBoxContainer/Checks/FullScreen" to="." method="_on_full_screen_toggled"]
+[connection signal="toggled" from="videoControl/HBoxContainer/Checks/Borderless" to="." method="_on_borderless_toggled"]
+[connection signal="toggled" from="videoControl/HBoxContainer/Checks/VSync" to="." method="_on_v_sync_toggled"]
+[connection signal="pressed" from="videoControl/backfromvideo" to="." method="_on_backfromvideo_pressed"]
+[connection signal="value_changed" from="Audio/HBoxContainer/Slider/Master" to="." method="_on_master_value_changed"]
+[connection signal="value_changed" from="Audio/HBoxContainer/Slider/Music" to="." method="_on_music_value_changed"]
+[connection signal="value_changed" from="Audio/HBoxContainer/Slider/Sound FX" to="." method="_on_sound_fx_value_changed"]
+[connection signal="pressed" from="Audio/backFromAudio" to="." method="_on_back_from_audio_pressed"]
