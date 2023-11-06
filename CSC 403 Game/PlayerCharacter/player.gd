@@ -11,7 +11,7 @@ class_name Player
 
 @onready var axis = Vector2.ZERO
 
-var player_health = 100
+var player_health = 50
 var enemy_attack_cooldown = true
 var player_alive = true
 
@@ -20,7 +20,7 @@ func _process(delta):
 
 func _physics_process(delta):
 	move(delta)
-	#update_health()
+	update_health()
 	
 ## Detects a left click and fires the gun.
 func shoot_gun():
@@ -58,19 +58,23 @@ func apply_movement(acceleration):
 	velocity = velocity.limit_length(MAX_SPEED)
 	
 	
-#func update_health():
-#	var healthbar = $healthbar
-#	healthbar.value = player_health
-
-'''
+func update_health():
+	var healthbar = $healthbar
+	healthbar.value = player_health
+	
+	if player_health >= 100:
+		healthbar.visible = false
+	else:
+		healthbar.visible = true
+	
+		
 func _on_regen_timeout():
-	if player_health < 100:
+	if player_health < 80:
 		player_health = player_health + 10
 		if player_health > 100:
 			player_health = 100
 	if player_health <= 0:
 		player_health = 0
-'''
 
 func player():
 	pass
