@@ -10,4 +10,6 @@ script = ExtResource("1_lit7k")
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("3_7lohh")]
 
+[node name="map-system" parent="." instance=ExtResource("2_jd6mi")]
+
 [connection signal="toggle_game_paused" from="." to="CanvasLayer/PauseMenu" method="_on_final_game_toggle_game_paused"]
