@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://qb1ypikst3wc"]
+
+[ext_resource type="Script" path="res://final_game.gd" id="1_lit7k"]
+[ext_resource type="PackedScene" uid="uid://bvj4bkjfhso48" path="res://map-system.tscn" id="2_ii11g"]
+[ext_resource type="PackedScene" uid="uid://umjdaxasw73k" path="res://pause_menu.tscn" id="3_7lohh"]
+
+[node name="FinalGame" type="Node"]
+script = ExtResource("1_lit7k")
+
+[node name="map-system" parent="." instance=ExtResource("2_ii11g")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("3_7lohh")]
