@@ -1,6 +1,6 @@
 extends Control
 
-@export var game_manager : GameManager
+@export var game_manager : FinalGame
 
 # Called when the node enters the scene tree for the first time
 
