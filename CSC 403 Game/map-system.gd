@@ -13,8 +13,6 @@ var available_maps = {
 	"victory" : "res://death_screen.tscn"
 }
 
-
-var door_key
 var num_enemies
 ## enemy_array is used to keep track of enemy instances
 var enemy_array = Array()
@@ -29,7 +27,6 @@ var player_instance
 func _ready():
 	main = get_tree().current_scene
 	transition(starting_map)
-	door_key = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 ## despawns enemies when health is 0, kills player if health is 0
@@ -38,7 +35,7 @@ func _process(delta):
 		if id.health == 0:
 			id.queue_free()
 			enemy_array.erase(id)
-			#num_enemies -= 1
+			num_enemies = num_enemies - 1
 			if (num_enemies == 0):
 				current_map.clear_doors()
 			
@@ -50,14 +47,11 @@ func _process(delta):
 	# once all enemies in a room are killed, doors automatically open
 	if (num_enemies == 0):
 		current_map.clear_doors()
-	if Input.is_action_just_pressed("open_doors"):
-		for id in enemy_array:
-			id.queue_free()
-			enemy_array.erase(id)
-		current_map.clear_doors()
-#	player collision must be added here for transition to next room
-#	each room has a string nextRoom
-#	transition(available_maps[current_room.nextRoom])
+#	if Input.is_action_just_pressed("open_doors"):
+#		for id in enemy_array:
+#			id.queue_free()
+#			enemy_array.erase(id)
+#		current_map.clear_doors()
 
 ## Transition is a function to despawn the current room and all enemy and player instances and spawn in the next room
 func transition(nextRoom):
@@ -83,6 +77,7 @@ func transition_current():
 	
 ## Spawn_enemies spawns in enemies based on the current room configuration and places them in the enemy array
 func spawn_enemies():
+	num_enemies = current_map.enemy_amount
 	for id in current_map.enemy_amount:
 		var enemy_instance = load("res://enemy.tscn").instantiate()
 		# id+1 because indexing starts at 1 for map dictionaries
