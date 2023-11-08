@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b416tip1no7i0" path="res://sprites/gun1.png" id="3_b3kx0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sv0r0"]
-size = Vector2(169.565, 165.094)
+size = Vector2(286.957, 273.585)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bsmed"]
 size = Vector2(286.957, 278.302)
@@ -27,7 +27,7 @@ show_percentage = false
 [node name="boss_hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boss_hitbox"]
-position = Vector2(2.17391, -2.35849)
+position = Vector2(-4.34783, -4.49846e-06)
 shape = SubResource("RectangleShape2D_sv0r0")
 
 [node name="boss_collision" type="CollisionShape2D" parent="."]

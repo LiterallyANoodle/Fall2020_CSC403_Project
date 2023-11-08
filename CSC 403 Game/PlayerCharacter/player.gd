@@ -82,3 +82,6 @@ func player():
 
 func _on_player_hitbox_body_entered(body):
 	pass
+	
+func timer_restart():
+	$regen.start()

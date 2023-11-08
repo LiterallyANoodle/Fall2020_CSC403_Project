@@ -1,7 +1,7 @@
 extends TileMap
 
 var enemy_amount = 3
-var nextRoom = "victory"
+var nextRoom = "boss_arena"
 var parent
 var spikes
 
@@ -22,7 +22,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if spikes:
-		parent.player_instance.player_health -= 5 * delta
+		parent.player_instance.player_health = parent.player_instance.player_health -10*delta
+		parent.player_instance.timer_restart()
 	pass
 
 func clear_doors():

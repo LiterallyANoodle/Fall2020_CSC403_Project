@@ -13,6 +13,7 @@ size = Vector2(118.87, 120.321)
 [node name="enemy" type="CharacterBody2D"]
 scale = Vector2(0.23, 0.212)
 script = ExtResource("2_oj2ul")
+speed = null
 
 [node name="enemyhealth" type="ProgressBar" parent="."]
 modulate = Color(1, 0, 0, 1)

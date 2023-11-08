@@ -2,13 +2,11 @@ extends CharacterBody2D
 class_name Enemy
 
 @export var speed = 400
-var screen_size
 var enemy_id
 var health
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	screen_size = get_viewport_rect().size
 	self.health = 20
 	
 	
