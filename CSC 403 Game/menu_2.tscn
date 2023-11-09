@@ -165,10 +165,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.025
 anchor_bottom = 0.033
-offset_left = 600.0
-offset_top = 536.0
-offset_right = 613.0
-offset_bottom = 543.24
+offset_left = 616.0
+offset_top = 648.0
+offset_right = 629.0
+offset_bottom = 655.24
 text = "Back"
 
 [node name="Audio" type="Control" parent="."]
@@ -188,9 +188,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -152.0
-offset_top = -44.0
+offset_top = -48.0
 offset_right = 104.0
-offset_bottom = 42.0
+offset_bottom = 38.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -211,9 +211,12 @@ text = "Sound FX"
 
 [node name="Slider" type="VBoxContainer" parent="Audio/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Master" type="HSlider" parent="Audio/HBoxContainer/Slider"]
 layout_mode = 2
+min_value = -45.0
+max_value = 0.0
 
 [node name="Music" type="HSlider" parent="Audio/HBoxContainer/Slider"]
 layout_mode = 2
@@ -234,8 +237,8 @@ text = "Back"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Label/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Label/VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Label/VBoxContainer/Quit" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Label/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Label/VBoxContainer/Quit" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="options/VBoxContainer/Video" to="." method="_on_video_pressed"]
 [connection signal="pressed" from="options/VBoxContainer/Audio" to="." method="_on_audio_pressed"]
 [connection signal="pressed" from="options/back" to="." method="_on_back_pressed"]
