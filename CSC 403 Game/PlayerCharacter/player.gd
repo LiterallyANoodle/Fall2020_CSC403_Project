@@ -11,7 +11,7 @@ class_name Player
 
 @onready var axis = Vector2.ZERO
 
-var player_health = 50
+var player_health = 100
 var enemy_attack_cooldown = true
 var player_alive = true
 
@@ -82,3 +82,6 @@ func player():
 
 func _on_player_hitbox_body_entered(body):
 	pass
+	
+func timer_restart():
+	$regen.start()

@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://c15qghu3etgp6"]
+
+[ext_resource type="Script" path="res://boss.gd" id="1_k1u2a"]
+[ext_resource type="Texture2D" uid="uid://dlgcugfaxfb2t" path="res://icon.svg" id="2_o17ai"]
+[ext_resource type="Texture2D" uid="uid://b416tip1no7i0" path="res://sprites/gun1.png" id="3_b3kx0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sv0r0"]
+size = Vector2(417.391, 412.736)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bsmed"]
+size = Vector2(286.957, 278.302)
+
+[node name="boss" type="CharacterBody2D"]
+scale = Vector2(0.23, 0.212)
+script = ExtResource("1_k1u2a")
+
+[node name="boss_health" type="ProgressBar" parent="."]
+modulate = Color(1, 0, 0, 1)
+offset_left = -109.0
+offset_top = 137.0
+offset_right = 113.0
+offset_bottom = 184.0
+max_value = 20.0
+value = 20.0
+show_percentage = false
+
+[node name="boss_hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boss_hitbox"]
+shape = SubResource("RectangleShape2D_sv0r0")
+
+[node name="boss_collision" type="CollisionShape2D" parent="."]
+position = Vector2(-4.14641e-06, -2.35849)
+shape = SubResource("RectangleShape2D_bsmed")
+
+[node name="bossSprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.17391, 2.13738)
+texture = ExtResource("2_o17ai")
+
+[node name="Gun1" type="Sprite2D" parent="."]
+position = Vector2(74.087, -2.35849)
+scale = Vector2(22.7826, 18.0818)
+texture = ExtResource("3_b3kx0")
+
+[connection signal="body_entered" from="boss_hitbox" to="." method="_on_enemy_hitbox_body_entered"]

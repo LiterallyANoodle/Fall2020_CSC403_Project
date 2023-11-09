@@ -12,6 +12,7 @@ var bullets_scene = preload("res://PlayerCharacter/PlayerBullet.tscn")
 @onready var aim_postition = null
 @onready var self_position = null
 @onready var anim = $AnimationPlayer
+@onready var sound = $ShotSound
 
 var bullets_instances = []
 var last_shot = 0
@@ -50,6 +51,12 @@ func shoot_left(s, hardpoint = self):
 	else:
 		anim.play("Shoot")
 		anim.queue("Idle")
+		
+	if sound.playing:
+		sound.stop()
+		sound.play()
+	else:
+		sound.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

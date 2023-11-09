@@ -1,12 +1,44 @@
-[gd_scene load_steps=7 format=3 uid="uid://c62uwrbgmwwf4"]
+[gd_scene load_steps=12 format=3 uid="uid://c62uwrbgmwwf4"]
 
 [ext_resource type="Script" path="res://PlayerCharacter/player.gd" id="1_xhryt"]
-[ext_resource type="Texture2D" uid="uid://dlgcugfaxfb2t" path="res://icon.svg" id="2_260fu"]
+[ext_resource type="Texture2D" uid="uid://da0gv440d0xra" path="res://sprites/peanut1.png" id="2_3xwk1"]
 [ext_resource type="PackedScene" uid="uid://dmimge8nwmplw" path="res://PlayerCharacter/PlayerGun.tscn" id="3_al8vl"]
+[ext_resource type="Texture2D" uid="uid://ij3jd2cfq5jp" path="res://sprites/peanut2.png" id="3_dkm15"]
 [ext_resource type="PackedScene" uid="uid://hrakx5ph76jp" path="res://PlayerCharacter/Cursor.tscn" id="4_0431f"]
+[ext_resource type="Texture2D" uid="uid://bluopkblmh2vd" path="res://sprites/peanut3.png" id="4_ag55d"]
+[ext_resource type="Texture2D" uid="uid://ctx05hxqq7c2x" path="res://sprites/peanut4.png" id="5_4mtxp"]
+[ext_resource type="Texture2D" uid="uid://52spxuuqwnmx" path="res://sprites/peanut5.png" id="6_rrusj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_35g02"]
 radius = 37.054
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sdvry"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3xwk1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_dkm15")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ag55d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4mtxp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_rrusj")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3hp3"]
 size = Vector2(172.222, 166.667)
@@ -18,8 +50,10 @@ script = ExtResource("1_xhryt")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_35g02")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_260fu")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_sdvry")
+animation = &"idle"
 
 [node name="Gun" parent="." instance=ExtResource("3_al8vl")]
 scale = Vector2(20, 20)
