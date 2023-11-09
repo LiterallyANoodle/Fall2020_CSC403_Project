@@ -103,7 +103,7 @@ _data = {
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_1pd7c")
 animation = &"idle"
-offset = Vector2(2, -1)
+offset = Vector2(5, -1)
 script = ExtResource("5_hujci")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
