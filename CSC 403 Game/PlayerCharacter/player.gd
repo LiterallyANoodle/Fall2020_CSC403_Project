@@ -11,7 +11,7 @@ class_name Player
 
 @onready var axis = Vector2.ZERO
 
-var player_health = 50
+var player_health = 100
 var enemy_attack_cooldown = true
 var player_alive = true
 
