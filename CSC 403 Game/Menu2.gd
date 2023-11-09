@@ -24,7 +24,7 @@ func toggle():
 
 func _on_start_pressed():
 	toggle()
-	get_tree().change_scene_to_file("res://final_game.tscn")
+	get_tree().change_scene_to_file("res://map-system.tscn")
 
 
 func show_and_hide(first, second):
@@ -65,25 +65,33 @@ func _on_back_from_audio_pressed():
 
 
 func _on_full_screen_toggled(button_pressed):
-	if(button_pressed):
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN, 3)
-
-
-
+	if(button_pressed==true):
+		DisplayServer.window_set_size(Vector2i(1920,1080))
+	else:
+		DisplayServer.window_set_size(Vector2i(720,800))
+			
 func _on_borderless_toggled(button_pressed):
-	pass # Replace with function body.
+	if(button_pressed):
+		DisplayServer.WINDOW_FLAG_BORDERLESS
 
 
 func _on_v_sync_toggled(button_pressed):
 	if(button_pressed):
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
-
+	else:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+		
+		
 func volume(bus_index, value):
 	AudioServer.set_bus_volume_db(bus_index, value)
 
 
 func _on_master_value_changed(value):
-	volume(0, value)
+	if(value == -45):
+		AudioServer.set_bus_mute(0,true)
+	else:
+		AudioServer.set_bus_mute(0,false)
+		volume(0, value)
 	
 
 func _on_music_value_changed(value):
