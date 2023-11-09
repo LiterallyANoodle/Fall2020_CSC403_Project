@@ -1,11 +1,12 @@
 extends Control
 
-@export var game_manager : FinalGame
-
+#@export var game_manager : FinalGame
+@export var game_manager : NewGame 
 # Called when the node enters the scene tree for the first time
 
 func _ready():
 	hide()
+	game_manager.connect("toggle_game_paused", _on_final_game_toggle_game_paused)
 	$CenterContainer/VBoxContainer/Resume.grab_focus()
 	
 
@@ -21,6 +22,7 @@ func _on_final_game_toggle_game_paused(is_paused : bool):
 
 func _on_resume_pressed():
 	game_manager.game_paused = false
+	$CenterContainer/VBoxContainer/Resume.grab_focus()
 
 
 func _on_quit_pressed():
