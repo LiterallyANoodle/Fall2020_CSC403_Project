@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://uyxsq4ww340l"]
+[gd_scene load_steps=7 format=3 uid="uid://uyxsq4ww340l"]
 
 [ext_resource type="Texture2D" uid="uid://dlgcugfaxfb2t" path="res://icon.svg" id="1_ptfe6"]
 [ext_resource type="Script" path="res://enemy.gd" id="2_oj2ul"]
 [ext_resource type="Texture2D" uid="uid://b416tip1no7i0" path="res://sprites/gun1.png" id="3_wxpxx"]
+[ext_resource type="Script" path="res://EnemyGun.gd" id="4_imln6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sv0r0"]
 size = Vector2(169.565, 165.094)
@@ -13,7 +14,6 @@ size = Vector2(118.87, 120.321)
 [node name="enemy" type="CharacterBody2D"]
 scale = Vector2(0.23, 0.212)
 script = ExtResource("2_oj2ul")
-speed = null
 
 [node name="enemyhealth" type="ProgressBar" parent="."]
 modulate = Color(1, 0, 0, 1)
@@ -41,8 +41,10 @@ scale = Vector2(1.08696, 1.05277)
 texture = ExtResource("1_ptfe6")
 
 [node name="Gun1" type="Sprite2D" parent="."]
-position = Vector2(74.087, 7.93396)
-scale = Vector2(22.7826, 9.93396)
+position = Vector2(7.62939e-06, -1.81899e-12)
+scale = Vector2(15, 15)
 texture = ExtResource("3_wxpxx")
+offset = Vector2(5, 0)
+script = ExtResource("4_imln6")
 
 [connection signal="body_entered" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_entered"]

@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://pe1rnkboxhai"]
+
+[ext_resource type="Script" path="res://PlayerCharacter/PlayerBullet.gd" id="1_jrc3n"]
+[ext_resource type="Texture2D" uid="uid://bu270e0wagfpk" path="res://sprites/playerBullet.png" id="2_8m1mj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1jb3w"]
+size = Vector2(0.75, 0.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cioqy"]
+size = Vector2(22, 6)
+
+[node name="PlayerBullet" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_jrc3n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_8m1mj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_1jb3w")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_cioqy")
