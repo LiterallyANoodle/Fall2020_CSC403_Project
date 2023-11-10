@@ -32,3 +32,14 @@ func enemy_position_getter(id):
 func player_position_getter():
 	return $Player_Spawn.position
 
+func _on_doors_area_body_entered(body):
+	if body == parent.player_instance:
+		parent.transition(nextRoom) 
+
+func _on_spikes_area_body_entered(body):
+	if body == parent.player_instance:
+		spikes = true
+
+func _on_spikes_area_body_exited(body):
+	if body == parent.player_instance:
+		spikes = false

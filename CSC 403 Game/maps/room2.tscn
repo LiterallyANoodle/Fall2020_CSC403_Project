@@ -559,4 +559,4 @@ position = Vector2(81, 33)
 position = Vector2(147.5, -6)
 shape = SubResource("RectangleShape2D_4v0c6")
 
-[connection signal="area_entered" from="R2Doors" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="R2Doors" to="." method="_on_r_2_doors_body_entered"]

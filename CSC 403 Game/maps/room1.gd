@@ -34,15 +34,9 @@ func player_position_getter():
 func _on_area_2d_body_entered(body: PhysicsBody2D):
 	entered = true
 
-
 func _on_area_2d_body_exited(body):
 	entered = false
 
-func door_collision(player_position):
-	var collision = self.get_cell_tile_data(0, player_position)
-
-
-func _on_area_2d_area_entered(area):
-	parent.transition(self.nextRoom)
-	get_node(^".").queue_free()
-	pass # Replace with function body.
+func _on_r_1_doors_body_entered(body):
+	if body == parent.player_instance:
+		parent.transition(nextRoom)

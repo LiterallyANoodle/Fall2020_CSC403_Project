@@ -537,7 +537,7 @@ layer_1/tile_data = PackedInt32Array(7, 655360, 3, 8, 720896, 3)
 script = ExtResource("2_o1y1d")
 
 [node name="Player_Spawn" type="Marker2D" parent="."]
-position = Vector2(50, 100)
+position = Vector2(131, 186)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(128, 128)
@@ -552,4 +552,4 @@ position = Vector2(129, -4)
 [node name="R1DoorsCollision" type="CollisionShape2D" parent="R1Doors"]
 shape = SubResource("RectangleShape2D_e07gp")
 
-[connection signal="area_entered" from="R1Doors" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="R1Doors" to="." method="_on_r_1_doors_body_entered"]
