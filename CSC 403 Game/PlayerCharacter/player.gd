@@ -10,6 +10,8 @@ class_name Player
 @export var FRICTION = 1200
 
 @onready var axis = Vector2.ZERO
+@onready var anim = $PlayerSprite/AnimationPlayer
+@onready var sprite = $PlayerSprite
 
 var player_health = 100
 var enemy_attack_cooldown = true
@@ -40,9 +42,17 @@ func move(delta):
 	
 	if axis == Vector2.ZERO:
 		apply_friction(FRICTION * delta)
+		anim.play("idle")
 		
 	else:
 		apply_movement(axis * ACCELERATION * delta)
+		anim.play("walk")
+		
+	# handle look direction 
+	if get_global_mouse_position().x > self.global_position.x:
+		sprite.flip_h = false
+	else:
+		sprite.flip_h = true
 		
 	move_and_slide()
 	
