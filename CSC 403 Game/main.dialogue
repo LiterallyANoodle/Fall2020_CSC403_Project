@@ -1,13 +1,19 @@
-~ this_is_a_node_title
+~ first
 
-Enemy: [[Hi|Hello|Howdy]], this is some dialogue.
-Enemy: Here are some choices.
-- First one
-	Enemy: You picked the first one.
-- Second one
-	Enemy: You picked the second one.
-- Start again => this_is_a_node_title
-- End the conversation => END
-Enemy: For more information see the online documentation.
-
+NPC: Come here stranger !
+- Who are you?
+Bowman: I am an old warrior of this place, I go by the name Bowman. This world is falling apart.
+- Why? what has happened?
+	Bowman: The KoolAid man has taken over this world. He has turned all the NUTS residents into his dark minions.
+	Bowman: You are the only one who can save our NUTS !
+	- Okay !
+	Bowman: Now go shoot down all the dark minions and kill the KoolAid man. Please end this tyranny !
+	=> END
+- I don't care.
+	Bowman: In that case I have something for you....
+	- What is it?
+		Bowman: DEEZ NUTSS !!
+		Bowman: HAHA GOTTEM !
+		=> END!
+- bye.
 => END
