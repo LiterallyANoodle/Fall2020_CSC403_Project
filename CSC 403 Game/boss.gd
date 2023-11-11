@@ -47,3 +47,6 @@ func _on_timer_timeout():
 	for item in gun_array:
 		item.shoot_left(self.get_node("."))
 	pass # Replace with function body.
+	
+func boss():
+	pass
