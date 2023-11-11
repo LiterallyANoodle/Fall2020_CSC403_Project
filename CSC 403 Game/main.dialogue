@@ -17,3 +17,15 @@ Bowman: I am an old warrior of this place, I go by the name Bowman. This world i
 		=> END!
 - bye.
 => END
+
+
+~ second
+
+Bowman: Behind this door lies the KoolAid man.
+Bowman: Finish him and end this Tyranny.
+- Do you have any advice for me?
+	Bowman: There's a lot to take care of and things to do.
+	Bowman: ..but we do not have much time
+	Bowman: hmm...The only piece of advice I would say is..
+	Bowman: GO NUTSS!!!!
+=> END
