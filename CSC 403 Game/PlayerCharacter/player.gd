@@ -98,7 +98,7 @@ func player():
 
 
 func _on_player_hitbox_body_entered(body):
-	if body.has_method("boss"):
+	if body.has_method("npc"):
 		npc_in_range = true
 	
 func timer_restart():
@@ -106,5 +106,5 @@ func timer_restart():
 
 
 func _on_player_hitbox_body_exited(body):
-	if body.has_method("boss"):
+	if body.has_method("npc"):
 		npc_in_range = false

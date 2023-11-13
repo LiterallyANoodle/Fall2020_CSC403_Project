@@ -4,6 +4,8 @@ var enemy_amount = 1
 var nextRoom = "room2"
 var entered = false
 
+var npc = preload("res://NPC.tscn").instantiate()
+
 var enemy_positions = {
 	1 : "Enemy_Spawn1"
 }
@@ -12,6 +14,8 @@ var parent
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	parent = get_parent()
+	self.add_child(npc)
+	npc.position = $npc1.position
 	pass # Replace with function body.
 
 
