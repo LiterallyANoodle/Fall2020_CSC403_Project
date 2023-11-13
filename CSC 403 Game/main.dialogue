@@ -2,18 +2,18 @@
 
 NPC: Come here stranger !
 - Who are you?
-Bowman: I am an old warrior of this place, I go by the name Bowman. This world is falling apart.
+ANKY: I am an old warrior of this place, I go by the name ANKY. This world is falling apart.
 - Why? what has happened?
-	Bowman: The KoolAid man has taken over this world. He has turned all the NUTS residents into his dark minions.
-	Bowman: You are the only one who can save our NUTS !
+	ANKY: The Darth Peanut has taken over this world. He has turned all the NUTS residents into his minions.
+	ANKY: You are the only one who can save our NUTS !
 	- Okay !
-	Bowman: Now go shoot down all the dark minions and kill the KoolAid man. Please end this tyranny !
+	ANKY: Now go liberate all the minions and kill the Darth Peanut. Please end this tyranny !
 	=> END
 - I don't care.
-	Bowman: In that case I have something for you....
+	ANKY: In that case I have something for you....
 	- What is it?
-		Bowman: DEEZ NUTSS !!
-		Bowman: HAHA GOTTEM !
+		ANKY: DEEZ NUTSS !!
+		ANKY: HAHA GOTTEM !
 		=> END!
 - bye.
 => END
@@ -21,11 +21,11 @@ Bowman: I am an old warrior of this place, I go by the name Bowman. This world i
 
 ~ second
 
-Bowman: Behind this door lies the KoolAid man.
-Bowman: Finish him and end this Tyranny.
+ANKY: Behind this door lies the KoolAid man.
+ANKY: Finish him and end this Tyranny.
 - Do you have any advice for me?
-	Bowman: There's a lot to take care of and things to do.
-	Bowman: ..but we do not have much time
-	Bowman: hmm...The only piece of advice I would say is..
-	Bowman: GO NUTSS!!!!
+	ANKY: There's a lot to take care of and things to do.
+	ANKY: ..but we do not have much time
+	ANKY: hmm...The only piece of advice I would say is..
+	ANKY: GO NUTSS!!!!
 => END
