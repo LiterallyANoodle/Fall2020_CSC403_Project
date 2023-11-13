@@ -34,6 +34,7 @@ shape = SubResource("RectangleShape2D_sv0r0")
 
 [node name="enemy_collision" type="CollisionShape2D" parent="."]
 position = Vector2(-1.43478, -1.16038)
+scale = Vector2(0.25, 1.2)
 shape = SubResource("RectangleShape2D_bsmed")
 
 [node name="enemySprite2D" type="Sprite2D" parent="."]

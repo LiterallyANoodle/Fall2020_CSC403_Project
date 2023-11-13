@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c15qghu3etgp6"]
+[gd_scene load_steps=13 format=3 uid="uid://c15qghu3etgp6"]
 
 [ext_resource type="Script" path="res://boss.gd" id="1_k1u2a"]
 [ext_resource type="Texture2D" uid="uid://caul08txpxosv" path="res://sprites/evil_peanut1.png" id="2_uggfv"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://c5vs42lf2qpc" path="res://sprites/gun2.png" id="5_dcxf5"]
 [ext_resource type="Texture2D" uid="uid://bx73ahm322d5i" path="res://sprites/gun3.png" id="6_xfwlu"]
 [ext_resource type="Texture2D" uid="uid://ddl6j2jq4n0be" path="res://sprites/gun4.png" id="7_yotjw"]
+[ext_resource type="AudioStream" uid="uid://bc7fgdvkq75sp" path="res://assets/hit.mp3" id="8_1f3g6"]
+[ext_resource type="Script" path="res://Music.gd" id="9_mpkfd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sv0r0"]
 size = Vector2(417.391, 412.736)
@@ -74,6 +76,10 @@ script = ExtResource("4_xdyaj")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_1f3g6")
+script = ExtResource("9_mpkfd")
 
 [connection signal="body_entered" from="boss_hitbox" to="." method="_on_enemy_hitbox_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

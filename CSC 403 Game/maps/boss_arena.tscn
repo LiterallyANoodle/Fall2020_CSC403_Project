@@ -439,7 +439,7 @@ script = ExtResource("2_of2s0")
 metadata/_edit_group_ = true
 
 [node name="BossSpawn" type="Marker2D" parent="."]
-position = Vector2(255, 119)
+position = Vector2(250, 218)
 
 [node name="Player_Spawn" type="Marker2D" parent="."]
 position = Vector2(251, 453)
