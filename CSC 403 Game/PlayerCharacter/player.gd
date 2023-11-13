@@ -10,15 +10,32 @@ class_name Player
 @export var FRICTION = 1200
 
 @onready var axis = Vector2.ZERO
+@onready var anim = $PlayerSprite/AnimationPlayer
+@onready var sprite = $PlayerSprite
 
-var player_health = 10
+var player_health = 100
+var enemy_attack_cooldown = true
+var player_alive = true
+var npc_in_range
+var boss_in_range
 
 func _process(delta):
 	shoot_gun()
 
 func _physics_process(delta):
+	
+	if npc_in_range == true:
+		if Input.is_action_just_pressed("ui_accept"):
+			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "first")
+			return
+	
+	if boss_in_range == true:
+		if Input.is_action_just_pressed("ui_accept"):
+			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "second")
+			return
+	
 	move(delta)
-	#update_health()
+	update_health()
 	
 ## Detects a left click and fires the gun.
 func shoot_gun():
@@ -38,9 +55,17 @@ func move(delta):
 	
 	if axis == Vector2.ZERO:
 		apply_friction(FRICTION * delta)
+		anim.play("idle")
 		
 	else:
 		apply_movement(axis * ACCELERATION * delta)
+		anim.play("walk")
+		
+	# handle look direction 
+	if get_global_mouse_position().x > self.global_position.x:
+		sprite.flip_h = false
+	else:
+		sprite.flip_h = true
 		
 	move_and_slide()
 	
@@ -56,15 +81,42 @@ func apply_movement(acceleration):
 	velocity = velocity.limit_length(MAX_SPEED)
 	
 	
-#func update_health():
-#	var healthbar = $healthbar
-#	healthbar.value = player_health
-
-
+func update_health():
+	var healthbar = $healthbar
+	healthbar.value = player_health
+	
+	if player_health >= 100:
+		healthbar.visible = false
+	else:
+		healthbar.visible = true
+	
+		
 func _on_regen_timeout():
-	if player_health < 100:
+	if player_health < 80:
 		player_health = player_health + 10
 		if player_health > 100:
 			player_health = 100
 	if player_health <= 0:
 		player_health = 0
+
+func player():
+	pass
+
+# if player detects either one of two, trigger the varible as true  (for dialogue system)
+func _on_player_hitbox_body_entered(body):
+	if body.has_method("npc"):
+		npc_in_range = true
+	
+	if body.has_method("boss"):
+		boss_in_range = true	
+	
+	
+func timer_restart():
+	$regen.start()
+
+# if player detects either one of two, trigger the varible as false (for dialogue system)
+func _on_player_hitbox_body_exited(body):
+	if body.has_method("npc"):
+		npc_in_range = false
+	if body.has_method("boss"):
+		boss_in_range = false	

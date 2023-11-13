@@ -1,0 +1,31 @@
+~ first
+
+NPC: Come here stranger !
+- Who are you?
+ANKY: I am an old warrior of this place, I go by the name ANKY. This world is falling apart.
+- Why? what has happened?
+	ANKY: The Darth Peanut has taken over this world. He has turned all the NUTS residents into his minions.
+	ANKY: You are the only one who can save our NUTS !
+	- Okay !
+	ANKY: Now go liberate all the minions and kill the Darth Peanut. Please end this tyranny !
+	=> END
+- I don't care.
+	ANKY: In that case I have something for you....
+	- What is it?
+		ANKY: DEEZ NUTSS !!
+		ANKY: HAHA GOTTEM !
+		=> END!
+- bye.
+=> END
+
+
+~ second
+
+DARTH Peanut: I AM THE DARTH Peanuts. Why did you kill all my minions??!?
+- ARE YOU NUTS??? They were my friends, not your minions.
+DARTH Peanut: Yes I am NUTS, But a cooler one.
+- Lame !
+DARTH Peanut: **GASPS**
+- Now I am going to kill you and liberate my NUT kingdom 
+
+=> END

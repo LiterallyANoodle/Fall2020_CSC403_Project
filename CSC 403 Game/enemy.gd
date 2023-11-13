@@ -1,4 +1,4 @@
-extends Sprite2D
+extends CharacterBody2D
 class_name Enemy
 
 @export var speed = 400
@@ -9,8 +9,11 @@ var health
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
-	self.health = 1
-
+	self.health = 20
+	
+	
+func _physics_process(delta):
+	update_health()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -24,5 +27,11 @@ func start(pos, given_id):
 	
 func update_health():
 	var healthbar = $enemyhealth
-	
 	healthbar.value = health
+
+func _on_enemy_hitbox_body_entered(body):
+	if body is PlayerBullet:
+		body.player_bullet(self)
+		$HitSound.stop()
+		$HitSound.play()
+

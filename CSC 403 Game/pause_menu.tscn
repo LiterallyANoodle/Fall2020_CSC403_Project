@@ -54,10 +54,6 @@ layout_mode = 2
 text = "Save
 "
 
-[node name="Settings" type="Button" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
-text = "Settings"
-
 [node name="MainMenu" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Main Menu
@@ -68,7 +64,7 @@ layout_mode = 2
 text = "Quit"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Save" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Settings" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

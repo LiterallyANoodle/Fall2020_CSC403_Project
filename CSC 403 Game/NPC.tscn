@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkh0xu0xdkjha"]
+
+[ext_resource type="Script" path="res://NPC.gd" id="1_0mo82"]
+[ext_resource type="Texture2D" uid="uid://dfy3j2polk4wm" path="res://anku.png" id="2_iuhu6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1ii7i"]
+radius = 13.3417
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bours"]
+radius = 49.0408
+
+[node name="NPC" type="CharacterBody2D"]
+script = ExtResource("1_0mo82")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1ii7i")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_bours")
+
+[node name="Anku" type="Sprite2D" parent="."]
+scale = Vector2(0.0600917, 0.0549404)
+texture = ExtResource("2_iuhu6")

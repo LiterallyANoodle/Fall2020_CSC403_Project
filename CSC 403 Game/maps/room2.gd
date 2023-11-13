@@ -35,11 +35,14 @@ func player_position_getter():
 func _on_area_2d_body_entered(body):
 	entered = true
 
-
 func _on_area_2d_body_exited(body):
 	entered = false
 
-
 func _on_area_2d_area_entered(area):
 	parent.transition(nextRoom)
+	pass # Replace with function body.
+
+func _on_r_2_doors_body_entered(body):
+	if body == parent.player_instance:
+		parent.transition(nextRoom)
 	pass # Replace with function body.

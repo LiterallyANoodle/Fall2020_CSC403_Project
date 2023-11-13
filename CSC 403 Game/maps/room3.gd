@@ -1,7 +1,7 @@
 extends TileMap
 
 var enemy_amount = 3
-var nextRoom = "victory"
+var nextRoom = "boss_arena"
 var parent
 var spikes
 
@@ -22,8 +22,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if spikes:
-		parent.player_instance.player_health -= 5 * delta
-	pass
+		parent.player_instance.player_health = parent.player_instance.player_health -10*delta
+		parent.player_instance.timer_restart()
 
 func clear_doors():
 	clear_layer(1)
@@ -34,17 +34,12 @@ func enemy_position_getter(id):
 func player_position_getter():
 	return $Player_Spawn.position
 
+func _on_area_2d_body_entered(body):
+	if body == parent.player_instance:
+		parent.transition(nextRoom)
 
-func _on_area_2d_area_entered(area):
-	parent.transition(nextRoom)
-	pass # Replace with function body.
-
-
-func _on_spikes_area_area_entered(area):
+func _on_spikes_area_body_entered(body):
 	spikes = true
-	pass # Replace with function body.
 
-
-func _on_spikes_area_area_exited(area):
+func _on_spikes_area_body_exited(body):
 	spikes = false
-	pass # Replace with function body.

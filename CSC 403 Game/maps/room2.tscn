@@ -297,6 +297,7 @@ texture = ExtResource("1_8d4a1")
 3:5/0/terrain = 0
 3:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:5/0/physics_layer_0/angular_velocity = 0.0
+3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:5/0/terrains_peering_bit/right_side = 0
 3:5/0/terrains_peering_bit/bottom_side = 0
 3:5/0/terrains_peering_bit/left_side = 0
@@ -337,6 +338,7 @@ texture = ExtResource("1_8d4a1")
 3:6/0 = 0
 3:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:6/0/physics_layer_0/angular_velocity = 0.0
+3:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:6/0 = 0
 4:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:6/0/physics_layer_0/angular_velocity = 0.0
@@ -557,4 +559,14 @@ position = Vector2(81, 33)
 position = Vector2(147.5, -6)
 shape = SubResource("RectangleShape2D_4v0c6")
 
-[connection signal="area_entered" from="R2Doors" to="." method="_on_area_2d_area_entered"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 57.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.964706, 0.964706, 0.964706, 1)
+theme_override_colors/font_outline_color = Color(0.764706, 0, 0, 1)
+text = "Level 2"
+
+[connection signal="body_entered" from="R2Doors" to="." method="_on_r_2_doors_body_entered"]

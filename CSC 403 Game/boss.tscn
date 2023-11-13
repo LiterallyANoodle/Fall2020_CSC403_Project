@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=3 uid="uid://c15qghu3etgp6"]
+
+[ext_resource type="Script" path="res://boss.gd" id="1_k1u2a"]
+[ext_resource type="Texture2D" uid="uid://caul08txpxosv" path="res://sprites/evil_peanut1.png" id="2_uggfv"]
+[ext_resource type="Texture2D" uid="uid://b416tip1no7i0" path="res://sprites/gun1.png" id="3_b3kx0"]
+[ext_resource type="Script" path="res://BossGun.gd" id="4_xdyaj"]
+[ext_resource type="Texture2D" uid="uid://c5vs42lf2qpc" path="res://sprites/gun2.png" id="5_dcxf5"]
+[ext_resource type="Texture2D" uid="uid://bx73ahm322d5i" path="res://sprites/gun3.png" id="6_xfwlu"]
+[ext_resource type="Texture2D" uid="uid://ddl6j2jq4n0be" path="res://sprites/gun4.png" id="7_yotjw"]
+[ext_resource type="AudioStream" uid="uid://bc7fgdvkq75sp" path="res://assets/hit.mp3" id="8_1f3g6"]
+[ext_resource type="Script" path="res://Music.gd" id="9_mpkfd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sv0r0"]
+size = Vector2(417.391, 412.736)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bsmed"]
+size = Vector2(286.957, 278.302)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fmdqp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_b3kx0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.1,
+"texture": ExtResource("5_dcxf5")
+}, {
+"duration": 0.2,
+"texture": ExtResource("6_xfwlu")
+}, {
+"duration": 0.1,
+"texture": ExtResource("7_yotjw")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 5.0
+}]
+
+[node name="boss" type="CharacterBody2D"]
+scale = Vector2(0.23, 0.212)
+script = ExtResource("1_k1u2a")
+
+[node name="boss_health" type="ProgressBar" parent="."]
+modulate = Color(1, 0, 0, 1)
+offset_left = -109.0
+offset_top = 137.0
+offset_right = 113.0
+offset_bottom = 184.0
+max_value = 20.0
+value = 20.0
+show_percentage = false
+
+[node name="boss_hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boss_hitbox"]
+shape = SubResource("RectangleShape2D_sv0r0")
+
+[node name="boss_collision" type="CollisionShape2D" parent="."]
+position = Vector2(-4.14641e-06, -2.35849)
+shape = SubResource("RectangleShape2D_bsmed")
+
+[node name="bossSprite2D" type="Sprite2D" parent="."]
+scale = Vector2(15, 15)
+texture = ExtResource("2_uggfv")
+
+[node name="Gun1" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fmdqp")
+animation = &"idle"
+script = ExtResource("4_xdyaj")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_1f3g6")
+script = ExtResource("9_mpkfd")
+
+[connection signal="body_entered" from="boss_hitbox" to="." method="_on_enemy_hitbox_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

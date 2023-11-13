@@ -12,6 +12,7 @@ var bullets_scene = preload("res://PlayerCharacter/PlayerBullet.tscn")
 @onready var aim_postition = null
 @onready var self_position = null
 @onready var anim = $AnimationPlayer
+@onready var sound = $ShotSound
 
 var bullets_instances = []
 var last_shot = 0
@@ -50,6 +51,12 @@ func shoot_left(s, hardpoint = self):
 	else:
 		anim.play("Shoot")
 		anim.queue("Idle")
+		
+	if sound.playing:
+		sound.stop()
+		sound.play()
+	else:
+		sound.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -79,8 +86,8 @@ func _physics_process(delta):
 		bullet["ticks"] += 1
 		
 	# change direction of aim.
-	self.look_at(get_viewport().get_mouse_position())
-	print(get_viewport().get_mouse_position())
+	self.look_at(get_global_mouse_position())
+	# print(get_viewport().get_mouse_position())
 	self.rotation_degrees = fmod(self.rotation_degrees + 360.0, 360.0)
 	# print(fmod(self.rotation_degrees + 90, 360.0))
 	if (fmod(self.rotation_degrees + 90, 360.0) > 180):

@@ -1,5 +1,7 @@
 extends PhysicsBody2D
 class_name PlayerBullet
 
-@export var damage = 1
+var damage = 2
 
+func player_bullet(target):
+	target.health = target.health - self.damage

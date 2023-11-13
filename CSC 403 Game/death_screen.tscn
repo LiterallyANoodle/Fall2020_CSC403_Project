@@ -39,10 +39,11 @@ layout_mode = 2
 text = "Main Menu"
 flat = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(641, 369)
+[node name="Camera2D" type="Camera2D" parent="HBoxContainer/VBoxContainer"]
+position = Vector2(91, 237)
+zoom = Vector2(1.3, 1.3)
 
-[node name="Player_Spawn" type="Marker2D" parent="."]
+[node name="Player_Spawn" type="Marker2D" parent="HBoxContainer"]
 position = Vector2(208, 273)
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
