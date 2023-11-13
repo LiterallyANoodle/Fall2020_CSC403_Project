@@ -109,7 +109,7 @@ func _on_load_pressed():
 
 
 func _on_last_save_pressed():
-	pass
+	get_tree().change_scene_to_file("res://new_game.tscn")
 
 
 func _on_new_game_pressed():
