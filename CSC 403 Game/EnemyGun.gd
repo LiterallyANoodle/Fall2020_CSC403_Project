@@ -9,6 +9,7 @@ extends Sprite2D
 ## PlayerGun also will flip itself vertically when facing the opposite side so that it is always visually upright.
 
 var bullets_scene = preload("res://PlayerCharacter/PlayerBullet.tscn")
+
 @onready var aim_postition = null
 @onready var self_position = null
 @onready var anim = $AnimationPlayer
@@ -89,7 +90,7 @@ func _physics_process(delta):
 			bullets_instances.erase(bullet)
 			
 		bullet["ticks"] += 1
-		
+	
 	# change direction of aim.
 	self.look_at(get_node("/root/NewGame/Player").position)
 	# print(get_viewport().get_mouse_position())
