@@ -30,7 +30,8 @@ func update_health():
 	healthbar.value = health
 
 func _on_enemy_hitbox_body_entered(body):
-	if body.has_method("PlayerBullet"):
-		health -= 2
-		print("player attacked")
+	if body is PlayerBullet:
+		body.player_bullet(self)
+		$HitSound.stop()
+		$HitSound.play()
 

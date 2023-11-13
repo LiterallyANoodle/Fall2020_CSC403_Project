@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://uyxsq4ww340l"]
+[gd_scene load_steps=8 format=3 uid="uid://uyxsq4ww340l"]
 
 [ext_resource type="Script" path="res://enemy.gd" id="2_oj2ul"]
 [ext_resource type="Texture2D" uid="uid://caul08txpxosv" path="res://sprites/evil_peanut1.png" id="2_ulfoh"]
 [ext_resource type="Texture2D" uid="uid://b416tip1no7i0" path="res://sprites/gun1.png" id="3_wxpxx"]
 [ext_resource type="Script" path="res://EnemyGun.gd" id="4_imln6"]
+[ext_resource type="AudioStream" uid="uid://bc7fgdvkq75sp" path="res://assets/hit.mp3" id="5_rtsrt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sv0r0"]
 size = Vector2(169.565, 165.094)
@@ -46,5 +47,9 @@ scale = Vector2(15, 15)
 texture = ExtResource("3_wxpxx")
 offset = Vector2(5, 0)
 script = ExtResource("4_imln6")
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_rtsrt")
+volume_db = -8.432
 
 [connection signal="body_entered" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_entered"]
