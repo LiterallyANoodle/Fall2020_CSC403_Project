@@ -18,7 +18,7 @@ var num_enemies
 ## enemy_array is used to keep track of enemy instances
 var enemy_array = Array()
 var enemy_spawn_location
-var starting_map = "boss_arena"
+var starting_map = "room1"
 var player_spawn_location
 ## scene tree
 var main
