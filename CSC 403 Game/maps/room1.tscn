@@ -552,4 +552,13 @@ position = Vector2(129, -4)
 [node name="R1DoorsCollision" type="CollisionShape2D" parent="R1Doors"]
 shape = SubResource("RectangleShape2D_e07gp")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 54.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.811765, 0.811765, 0.811765, 1)
+text = "Level 1"
+
 [connection signal="body_entered" from="R1Doors" to="." method="_on_r_1_doors_body_entered"]

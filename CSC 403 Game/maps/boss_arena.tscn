@@ -482,6 +482,15 @@ position = Vector2(-368, 368)
 position = Vector2(417, 47)
 shape = SubResource("RectangleShape2D_epv18")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.909804, 0.909804, 0.909804, 1)
+text = "Level 4"
+
 [connection signal="body_entered" from="doors_area" to="." method="_on_doors_area_body_entered"]
 [connection signal="body_entered" from="spikes_1_area" to="." method="_on_spikes_area_body_entered"]
 [connection signal="body_exited" from="spikes_1_area" to="." method="_on_spikes_area_body_exited"]
