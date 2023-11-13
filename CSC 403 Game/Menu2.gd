@@ -8,6 +8,7 @@ extends Control
 @onready var options = $options
 @onready var video = $videoControl
 @onready var audio = $Audio
+@onready var save = $SaveMenu
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -99,3 +100,22 @@ func _on_master_value_changed(value):
 		AudioServer.set_bus_mute(0,false)
 		volume(0, value)
 
+
+
+func _on_load_pressed():
+	show_and_hide(save, menu)
+	$SaveMenu/VBoxContainer/LastSave.grab_focus()
+	
+
+
+func _on_last_save_pressed():
+	pass
+
+
+func _on_new_game_pressed():
+	get_tree().change_scene_to_file("res://new_game.tscn")
+
+
+func _on_back_from_save_pressed():
+	show_and_hide(menu, save)
+	$MarginContainer/VBoxContainer/Label/VBoxContainer/Start.grab_focus()

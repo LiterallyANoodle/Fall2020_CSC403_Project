@@ -2,9 +2,13 @@ extends Control
 
 ## Reference to the game manager
 @export var game_manager : NewGame
+
+# variable for the current room
+var currentRoom
  
 ## Called when the node enters the scene tree for the first time
 func _ready():
+	
 	hide()
 	game_manager.connect("toggle_game_paused", _on_final_game_toggle_game_paused)
 	$CenterContainer/VBoxContainer/Resume.grab_focus()
@@ -35,4 +39,10 @@ func _on_main_menu_pressed():
 	get_tree().change_scene_to_file("res://menu_2.tscn")
 	self.queue_free()
 	pass # Replace with function body.
+
+
+func _on_save_pressed():
+	var map = get_node("/root/NewGame/map-system")
+	currentRoom = map.current_map
+	
 
