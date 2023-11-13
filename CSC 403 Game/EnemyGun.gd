@@ -92,7 +92,8 @@ func _physics_process(delta):
 		bullet["ticks"] += 1
 	
 	# change direction of aim.
-	self.look_at(get_node("/root/NewGame/Player").position)
+	var map_system_node = get_node("/root/NewGame/map-system")
+	self.look_at(map_system_node.player_position())
 	# print(get_viewport().get_mouse_position())
 	self.rotation_degrees = fmod(self.rotation_degrees + 360.0, 360.0)
 	# print(fmod(self.rotation_degrees + 90, 360.0))
